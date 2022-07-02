@@ -3,7 +3,7 @@
   "collaborators": [
     "Jos <me@josfeenstra.nl>"
   ],
-  "version": "0.1.0",
+  "version": "0.2.0",
   "files": [
     "gfp_startin_bg.wasm",
     "gfp_startin.js",

@@ -77,24 +77,10 @@ function getUint32Memory0() {
 function getArrayU32FromWasm0(ptr, len) {
     return getUint32Memory0().subarray(ptr / 4, ptr / 4 + len);
 }
-/**
-* @param {boolean} a
-* @returns {Float64Array}
-*/
-export function points(a) {
-    try {
-        const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
-        wasm.points(retptr, a);
-        var r0 = getInt32Memory0()[retptr / 4 + 0];
-        var r1 = getInt32Memory0()[retptr / 4 + 1];
-        var v0 = getArrayF64FromWasm0(r0, r1).slice();
-        wasm.__wbindgen_free(r0, r1 * 8);
-        return v0;
-    } finally {
-        wasm.__wbindgen_add_to_stack_pointer(16);
-    }
-}
 
+function isLikeNone(x) {
+    return x === undefined || x === null;
+}
 /**
 */
 export function start() {
@@ -164,95 +150,6 @@ function passStringToWasm0(arg, malloc, realloc) {
 }
 /**
 */
-export class Matrix {
-
-    static __wrap(ptr) {
-        const obj = Object.create(Matrix.prototype);
-        obj.ptr = ptr;
-
-        return obj;
-    }
-
-    __destroy_into_raw() {
-        const ptr = this.ptr;
-        this.ptr = 0;
-
-        return ptr;
-    }
-
-    free() {
-        const ptr = this.__destroy_into_raw();
-        wasm.__wbg_matrix_free(ptr);
-    }
-    /**
-    * @param {number} width
-    * @param {number} height
-    * @returns {Matrix}
-    */
-    static new(width, height) {
-        var ret = wasm.matrix_new(width, height);
-        return Matrix.__wrap(ret);
-    }
-    /**
-    * @param {Float64Array} vec
-    * @param {number} width
-    * @returns {Matrix}
-    */
-    static new_from_vec(vec, width) {
-        var ptr0 = passArrayF64ToWasm0(vec, wasm.__wbindgen_malloc);
-        var len0 = WASM_VECTOR_LEN;
-        var ret = wasm.matrix_new_from_vec(ptr0, len0, width);
-        return Matrix.__wrap(ret);
-    }
-    /**
-    * @param {number} row
-    * @param {number} col
-    * @param {number} value
-    * @returns {boolean}
-    */
-    set(row, col, value) {
-        var ret = wasm.matrix_set(this.ptr, row, col, value);
-        return ret !== 0;
-    }
-    /**
-    * @param {number} row
-    * @param {Float64Array} values
-    * @returns {boolean}
-    */
-    set_row(row, values) {
-        var ptr0 = passArrayF64ToWasm0(values, wasm.__wbindgen_malloc);
-        var len0 = WASM_VECTOR_LEN;
-        var ret = wasm.matrix_set_row(this.ptr, row, ptr0, len0);
-        return ret !== 0;
-    }
-    /**
-    * @param {number} row
-    * @param {number} col
-    * @returns {number}
-    */
-    get(row, col) {
-        var ret = wasm.matrix_get(this.ptr, row, col);
-        return ret;
-    }
-    /**
-    * @returns {Float64Array}
-    */
-    to_vec() {
-        try {
-            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
-            wasm.matrix_to_vec(retptr, this.ptr);
-            var r0 = getInt32Memory0()[retptr / 4 + 0];
-            var r1 = getInt32Memory0()[retptr / 4 + 1];
-            var v0 = getArrayF64FromWasm0(r0, r1).slice();
-            wasm.__wbindgen_free(r0, r1 * 8);
-            return v0;
-        } finally {
-            wasm.__wbindgen_add_to_stack_pointer(16);
-        }
-    }
-}
-/**
-*/
 export class Triangulation {
 
     static __wrap(ptr) {
@@ -272,14 +169,6 @@ export class Triangulation {
     free() {
         const ptr = this.__destroy_into_raw();
         wasm.__wbg_triangulation_free(ptr);
-    }
-    /**
-    * @param {boolean} b
-    * @returns {Triangulation}
-    */
-    static new_default(b) {
-        var ret = wasm.triangulation_new_default(b);
-        return Triangulation.__wrap(ret);
     }
     /**
     * @param {Float64Array} pts
@@ -394,6 +283,29 @@ export class Triangulation {
     remove(v) {
         var ret = wasm.triangulation_remove(this.ptr, v);
         return ret !== 0;
+    }
+    /**
+    * @param {number} level
+    * @param {Float64Array | undefined} levels
+    * @returns {Float64Array | undefined}
+    */
+    isolevel(level, levels) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            var ptr0 = isLikeNone(levels) ? 0 : passArrayF64ToWasm0(levels, wasm.__wbindgen_malloc);
+            var len0 = WASM_VECTOR_LEN;
+            wasm.triangulation_isolevel(retptr, this.ptr, level, ptr0, len0);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            let v1;
+            if (r0 !== 0) {
+                v1 = getArrayF64FromWasm0(r0, r1).slice();
+                wasm.__wbindgen_free(r0, r1 * 8);
+            }
+            return v1;
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
     }
 }
 
