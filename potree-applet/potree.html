@@ -71,13 +71,14 @@
 			for (let child of pointcloud.children) {
 				// console.log(child.name);
 				// console.log(child)
-
+				let classification = child.geometry.attributes.classification.array;
 				let data = child.geometry.attributes.position.array;
 				let position = child.position;
 				let boundingBox = child.geometry.boundingBox;
 
 				dict[child.name] = {
 					data,
+					classification,
 					position,
 					boundingBox,
 				};
@@ -96,26 +97,53 @@
 			}
 
 			// join datasets
-			let totalData = new Float32Array(total);
-			let totalIndex = 0;
+			let flat = new Float32Array(total);
+			let flatIndex = 0;
+
+			let flatKlass = new Uint8Array(total / 3.0);
+			let flatKlassIndex = 0;
 
 			for (let key in oct) {
-				let subset = oct[key].data;
+				let subData = oct[key].data;
 				let offset = [
 					oct[key].position.x, 
 					oct[key].position.y, 
 					oct[key].position.z
 				];
-				for (let i = 0; i < subset.length; i++) {
+				for (let i = 0; i < subData.length; i++) {
 					let j = i % 3;
-					totalData[totalIndex] = subset[i] + offset[j] + totalOffset[j];
-					totalIndex += 1;
+					flat[flatIndex] = subData[i] + offset[j] + totalOffset[j];
+					flatIndex += 1;
+				}
+
+				let subKlass = oct[key].classification;
+				for (let i = 0; i < subKlass.length; i++) {
+					flatKlass[flatKlassIndex] = subKlass[i];
+					flatKlassIndex += 1;
 				}
 			}
-			return totalData;
+
+			return {flat, flatKlass};
 		}
 
-		function extractClippedPoints(reorient=true) {
+		function getInactiveClasses() {
+			let klasses = window.viewer.classifications;
+			let list = [];
+			for (let key in klasses) {
+				if (!klasses[key].visible) {
+					if (key == "DEFAULT") {
+						list.push(-1);
+					} else {
+						list.push(parseInt(key));
+					}
+				}
+
+			}
+			console.log(list);
+			return list;
+		}
+
+		function extractClippedPoints(reorient=true, blacklistedClassifications=getInactiveClasses()) {
 
 			// find pointclouds
 			let pc = window.viewer.scene.pointclouds[0]
@@ -125,8 +153,8 @@
 			// console.log(pc.position);
 
 			let oct = extractPointCloudDataFromOct(pc);
-			let flat = flatFromOct(oct, [pc.position.x, pc.position.y, pc.position.z]);
-		
+			let {flat, flatKlass} = flatFromOct(oct, [pc.position.x, pc.position.y, pc.position.z]);
+
 			// clipping
 			if (window.viewer.scene.volumes.length == 0) {
 				return flat;
@@ -141,7 +169,14 @@
 
 			let pos = new THREE.Vector3(0,0,0);
 			let culled = [];
-			for (let i = 0 ; i < flat.length; i+=3) {
+			for (let j = 0 ; j < flatKlass.length; j++) {
+				let i = j * 3;
+				// only include active classifications
+				let kls = flatKlass[j];
+				if (blacklistedClassifications.includes(kls)) {
+					continue;
+				}
+
 				pos.set(flat[i], flat[i+1], flat[i+2]);
 				pos = pos.applyMatrix4(someMatrix);
 				
@@ -249,7 +284,8 @@
         })
 
 		main();
-		// loadPointCloud("http://ahn2.pointclouds.nl/potree_data/tile_all/cloud.js", "ahn");
+		// loadPointCloud("http://ahn2.pointclouds.nl/potree_data/tile_all/cloud.js", "ahn3");
+		// loadPointCloud("https://s3.eu-central-1.amazonaws.com/viewer.geodelta.com/data/jos/metadata.json", "AHN3 (hosted by Geodelta)");
 
 	</script>
   </body>
