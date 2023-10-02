@@ -3,7 +3,7 @@
 
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <title>Natte Voeten!</title>
+  <title>Polderen!</title>
   <link rel="icon" type="image/svg+xml" href="../../logo.svg" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -62,7 +62,7 @@
       </div>
     </div>
   </nav>
-  <section class="site-hero" style="background-image: url(assets/hero.jpg)" id="section-home"
+  <section class="site-hero" style="background-image: url(assets/poldersplash-no-text.jpg)" id="section-home"
     data-stellar-background-ratio="0.5">
     <div class="container">
       <div class="row intro-text align-items-center justify-content-center">
@@ -85,28 +85,21 @@
   <section class="site-section" id="section-about">
     <div class="container">
       <div class="row mb-5 align-items-center">
-        <div class="col-lg-5 pl-lg-5">
+        <div class="col-lg-7 pl-lg-7">
           <div class="section-heading">
-            <h2>Natte Voeten!</h2>
+            <h2>Zet je schrap om te polderen!</h2>
           </div>
-          <p class="lead">
-            Vecht tegen de alsmaar stijgende zee in deze oer-Hollandse City Builder!
-          </p>
           <p class="mb-5">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum nesciunt inventore nostrum rerum
-            consectetur dignissimos cum ipsum nulla dicta deserunt tempore, ut quidem quaerat saepe fugiat vel ex nobis
-            commodi error. Voluptates quas vitae illo, dolor quod nostrum. Officiis architecto cum quidem. Soluta illum
-            eius similique fuga exercitationem et laboriosam.
+            Vecht tegen de alsmaar stijgende zee in deze oer-Hollandse City Builder! 
 
-            Waar een klein land groot in kan zijn.
           </p>
           <p>
             <a href="#section-demo" class="btn btn-primary px-4 py-2 btn-sm smoothscroll">Demo</a>
             <a href="#section-contact" class="smoothscroll btn btn-secondary px-4 py-2 btn-sm">Contact</a>
           </p>
         </div>
-        <div class="col-lg-7 pr-lg-5 mb-5 mb-lg-0">
-          <img src="assets/diagram.jpg" alt="Image placeholder" class="img-fluid" />
+        <div class="col-lg-5 pr-lg-5 mb-5 mb-lg-0">
+          <img src="assets/poldersplash-no-text.jpg" alt="Image placeholder" class="img-fluid" />
         </div>
       </div>
     </div>
@@ -167,27 +160,17 @@
       <div class="row mb-2">
         <div class="col-md-12">
           <div class="section-heading text-center">
-            <h2>Smaakmaker</h2>
-            <a href="../project/nattedemo/">← fullscreen →</a>
+            <h2>Demo</h2>
+            <a href="../project/polder/">← fullscreen →</a>
           </div>
-          <p class="mb-5">
-            
-          </p>
         </div>
       </div>
     </div>
 
 
     <div class="row mb-5 align-items-center">
-      <iframe src="../project/nattedemo" height="500px" width="100%">
+      <iframe src="../project/polder" height="500px" width="100%">
       </iframe>
-    </div>
-
-    
-    <div class="container">
-      <div class="row mb-5 align-items-center">
-
-      </div>
     </div>
   </section>
 
@@ -199,7 +182,7 @@
             <h2>We hebben hulp nodig!</h2>
           </div>
           <p class="lead">
-            Help ons dit spel te realiseren doormiddel van ...
+            Help ons om Polderen! te realiseren 
           </p>
           <p class="mb-5">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Est odit neque in debitis dolorem quisquam amet
@@ -207,7 +190,9 @@
             Praesentium, qui.
           </p>
         </div>
-
+        <div class="col-lg-7 pr-lg-5 mb-5">
+          <img src="assets/polder-wip.PNG" alt="Image placeholder" class="img-fluid" />
+        </div>
       </div>
     </div>
   </section>
@@ -215,21 +200,18 @@
   <section class="site-section bg-light" id="section-contact">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 mb-5">
-          <div class="section-heading text-center">
-            <h2>Contact</h2>
-          </div>
-        </div>
         <div class="col-md-7 mb-5 mb-md-0">
-          <form action="" class="site-form">
-            <h3 class="mb-5">Stuur een bericht</h3>
+          
+          <form class="site-form" action="mailto:info@geofront.com?subject=Gastenboek" method="get" enctype="text/plain">
+            <h3 class="mb-5">Laat een berichtje achter</h3>
             <div class="form-group">
-              <input type="email" class="form-control px-3 py-4" placeholder="Email" />
+              <input name="email" type="email" class="form-control px-3 py-4" placeholder="Email" />
             </div>
             <div class="form-group mb-5">
-              <textarea class="form-control px-3 py-4" cols="30" rows="10" placeholder="Uw Bericht"></textarea>
+              <textarea name="body" type="message" class="form-control px-3 py-4" cols="30" rows="10" placeholder="Bericht"></textarea>
             </div>
             <div class="form-group">
+              <input hidden name="subject" value="Gastenboek" />
               <input type="submit" class="btn btn-primary px-4 py-3" value="Stuur Bericht" />
             </div>
           </form>
@@ -241,17 +223,13 @@
               <span class="text-uppercase">Geofront Spatial Software</span>
             </li>
             <li>
-              <span class="text-uppercase">Naam</span>
-              Jos Feenstra
-            </li>
-            <li>
               <span class="text-uppercase">Email</span>
               info@geofront.nl
             </li>
             <li>
               <span class="text-uppercase">Adres</span>
-              De Genestetstraat 53 <br />
-              3117 TA Schiedam
+              Professor Snijdersstraat 2
+              2628 RA Delft
             </li>
           </ul>
         </div>
