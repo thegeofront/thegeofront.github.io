@@ -6,10 +6,50 @@
   <link rel="icon" type="image/svg+xml" href="/logo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Geofront</title>
+  <meta name="description" content="Spatial Software Design & Engineering">
+  <meta name="keywords"
+    content="Jos, Feenstra, Jos Feenstra, josfeenstra, developer, engineer, Bevy, Rust, Consultant, 3D, grasshopper, geomatics, TU Delft">
+  <meta name="author" content="Jos Feenstra">
   <link rel="stylesheet" href="index.css">
+  <script src="./landing/index.js"></script>
+  <style>
+    /* this needs to be included, so that it always runs no matter what */
+    * {
+      animation: show 500ms;
+    }
+
+    /* Keyframes */
+    @keyframes show {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes hide {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: scaleY(0);
+        height: 0%;
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <canvas id="canvas" tabindex="0" data-goto="center" data-filled="1" data-sub-count="2"
+    style="position: absolute; left: 0; top: 0; width: 100vw; height: 100vh; z-index: -1;">
+    <!-- TODO: add spinny ball here -->
+    <div id="backdrop"></div>
+    <div id="interface"></div>
+  </canvas>
   <div id="app">
     <a href="https://josfeenstra.nl" target="_blank">
       <img src="logo.svg" class="logo" alt="Geofront Logo" />
@@ -23,23 +63,17 @@
     <p>
       Software developer, designer, and procedural modeller
     </p>
-    <br>
     <p>
       <a href="https://x.com/i_am_feenster">Twitter / X</a>
-    </p>
-    <p>
+      |
       <a href="https://github.com/josfeenstra">Github</a>
-    </p>
-    <p>
+      |
       <a href="https://discordapp.com/users/i_am_feenster">Discord</a>
-    </p>
-    <p>
+      |
       <a href="https://josfeenstra.nl">Portfolio</a>
-    </p>
-    <p>
+      |
       <a href="mailto:info@geofront.nl">Email</a>
-    </p>
-    <p>
+      |
       <a href="https://www.linkedin.com/in/jos-feenstra">LinkedIn</a>
     </p>
   </div>
