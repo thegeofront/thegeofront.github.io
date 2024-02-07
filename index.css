@@ -7,7 +7,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255, 0.871);
   background-color: #242424;
 
   font-synthesis: none;
@@ -39,7 +39,7 @@ body {
 p {
   font-family: Inter, 'Courier New', Courier, monospace, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 600;
 
 }
 
