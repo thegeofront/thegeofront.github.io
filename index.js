@@ -7,6 +7,30 @@ d.addEventListener("DOMContentLoaded", () => {
 function main() {
     configureNavButtons();
     configurePhaseButtons();
+    configureFunToggle();
+}
+
+var fun_toggle = 0;
+function configureFunToggle() {
+    d.querySelector(".fun-toggle").onclick = () => {
+        fun_toggle = (fun_toggle + 1) % 5;
+        if (fun_toggle == 0) {
+            sphereGoto("inside");
+        } 
+        if (fun_toggle == 1) {
+            sphereGoto("side");
+        } 
+        if (fun_toggle == 2) {
+            sphereGoto("bottom");
+        } 
+        if (fun_toggle == 3) {
+            sphereGoto("top");
+        } 
+        if (fun_toggle == 4) {
+            sphereGoto("overview");
+        } 
+        
+    };
 }
 
 function configureNavButtons() {
@@ -22,7 +46,6 @@ function configureNavButtons() {
         
         btn.onclick = async (ev) => {
             console.log("go to: ", nav);
-            console.log(d.querySelector("#app"));
             d.querySelector("#main-page").hidden = true;
             d.querySelector("#markdown-page").hidden = false;
 
@@ -39,6 +62,7 @@ function configureNavButtons() {
                 var converter = new showdown.Converter();
                 html = converter.makeHtml(text);
             }
+
             d.querySelector("#markdown-container").innerHTML = html;
         };
     }
@@ -53,6 +77,12 @@ function configureNavButtons() {
             phase_2.hidden = true;
         }
     };
+}
+
+
+
+function sphereGoto(tag="inside") {
+    d.querySelector("canvas").setAttribute("data-goto", tag);
 }
 
 function configurePhaseButtons() {
