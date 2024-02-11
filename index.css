@@ -1,6 +1,11 @@
 :root {
   --logo-size: 40vmin;
-  --logo-padding: 2.0em;
+  --logo-padding: 0.5em;
+
+  --neon-blue: #4f86fc;
+  --dark-neon-blue: #646cff;
+
+  --some-interesting-color: #ff6464;
 
   font-family: 'Fira Code', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -18,16 +23,35 @@
   -webkit-text-size-adjust: 100%;
 }
 
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  /* margin-top: max(calc(40vh - (0.5 * (var(--logo-size))) - var(--logo-padding)), 0px); */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  /* hide scrollbars */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 a {
   margin-top: 0px;
   font-weight: 600;
-  color: #ff6464;
+  color: var(--dark-neon-blue);
   text-decoration: inherit;
+  will-change: color;
+  transition: color 200ms;
 }
 
 a:hover {
-  color: #4f86fc;
+  color: white;
+  font-weight: bold;
 }
+
 
 body {
   margin: 0;
@@ -53,7 +77,7 @@ p {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
-
+  
   position: relative;
   backface-visibility: hidden;
   will-change: overflow;
@@ -75,34 +99,28 @@ p {
 /* align-items: center; */
 /* } */
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  margin-top: max(calc(40vh - (0.5 * (var(--logo-size))) - var(--logo-padding)), 0px);
-  text-align: center;
+.padded {
+  padding: 2.0em;
 }
+
 
 .logo {
   height: var(--logo-size);
   padding: var(--logo-padding);
-  will-change: filter;
-  transition: filter 300ms;
 }
 
-.logo:hover {
+.backlit {
+  will-change: filter;
+  transition: filter 300ms;
+  filter: drop-shadow(0 0 0.2em #646cffaa);
+}
+
+.backlit:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 
-.logo.vanilla:hover {
+.backlit.vanilla:hover {
   filter: drop-shadow(0 0 2em #3178c6aa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
 
 button {
@@ -118,12 +136,19 @@ button {
 }
 
 button:hover {
-  border-color: #646cff;
+  border-color: var(--dark-neon-blue);
 }
 
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.project {
+  margin-top: 0.5em;
+  width: 20vmin;
+  height: 20vmin;
+  outline: 2px auto -webkit-focus-ring-color;
 }
 
 /* @media (prefers-color-scheme: light) {
