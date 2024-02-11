@@ -1,3 +1,0 @@
-# Hedronic
-
-this is hedronic

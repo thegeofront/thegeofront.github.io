@@ -14,9 +14,15 @@ function configureNavButtons() {
         if (btn.getAttribute("nav-to") == null) {
             continue;
         }
+        let nav = btn.getAttribute("nav-to");
+        let splash = btn.getAttribute("splash");
+        if (splash != null) {
+            btn.style.background = `linear-gradient(rgba(0.3, 0.3, 0.3, 0.8), rgba(0.3, 0.3, 0.3, 0.8)), center / cover no-repeat url(./pages/${splash}/splash.png`;
+        }
+        
         btn.onclick = (ev) => {
-            let nav = btn.getAttribute("nav-to");
             console.log("go to: ", nav);
+            
         };
     }
 }
