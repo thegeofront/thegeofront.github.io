@@ -1,6 +1,6 @@
 # Hedronic
 
-This is Hedronic, a visual programming language for web-based geometry processing. Hedronic is under active development.
+Hedronic is a visual programming language for web-based geometry processing. Hedronic is under active development.
 
 <div>
     <video width="320" height="240" controls>
