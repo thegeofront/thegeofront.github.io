@@ -8,6 +8,6 @@ Polder is in active development. <a href="https://x.com/i_am_feenster">Developme
 
 <br>
 
-<img src="./pages/polder/assets/a.png" height="150px"/>
-<img src="./pages/polder/assets/b.png" height="150px"/>
-<img src="./pages/polder/assets/c.png" height="150px"/>
+<img src="./pages/polder/assets/a.png" height="150vmin"/>
+<img src="./pages/polder/assets/b.png" height="150vmin"/>
+<img src="./pages/polder/assets/c.png" height="150vmin"/>
