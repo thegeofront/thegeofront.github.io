@@ -20,13 +20,40 @@ function configureNavButtons() {
             btn.style.background = `linear-gradient(rgba(0.3, 0.3, 0.3, 0.8), rgba(0.3, 0.3, 0.3, 0.8)), center / cover no-repeat url(./pages/${splash}/splash.png`;
         }
         
-        btn.onclick = (ev) => {
+        btn.onclick = async (ev) => {
             console.log("go to: ", nav);
-            
+            console.log(d.querySelector("#app"));
+            d.querySelector("#main-page").hidden = true;
+            d.querySelector("#markdown-page").hidden = false;
+
+            // load markdown
+            let path = `pages/${nav}`;
+            let res = await fetch(path);
+            let text = await res.text();
+
+            let html = "";
+            if (path.endsWith("html")) {
+                html = text;
+            }
+            if (path.endsWith("md")) {
+                var converter = new showdown.Converter();
+                html = converter.makeHtml(text);
+            }
+            d.querySelector("#markdown-container").innerHTML = html;
         };
     }
-}
 
+    d.querySelector(".back-button").onclick = () => {
+        d.querySelector("#main-page").hidden = false;
+        d.querySelector("#markdown-page").hidden = true;
+        for (let phase_1 of getElementsByClassName("phase-1")) {
+            phase_1.hidden = false;
+        }
+        for (let phase_2 of getElementsByClassName("phase-2")) {
+            phase_2.hidden = true;
+        }
+    };
+}
 
 function configurePhaseButtons() {
     d.getElementById("next-phase").onclick = () => {

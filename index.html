@@ -21,6 +21,7 @@
 
   <script src="./libraries/geon_sphere_background/index.js"></script>
   <script src="./index.js"></script>
+  <script src="./libraries/showdown/showdown.js"></script>
 
   
   <style>
@@ -63,8 +64,15 @@
   </canvas>
   <div class="scroll-container">
     <div class="scroll-item" id="app">
-      <div id="markdown-page" hidden="true">
+      <div id="markdown-page" hidden>
+        <div id="markdown-container">
 
+        </div>
+        <br>
+        <button class="backlit back-button">
+          Back
+        </button>
+        <br>
       </div>
       <div id="main-page">
         <a href="https://josfeenstra.nl" target="_blank">
@@ -82,20 +90,21 @@
           <button id="next-phase" class="phase-1 backlit">
             Creations
           </button>
-          <button class="phase-1 backlit" nav-to="./services.md">
+          <button class="phase-1 backlit" nav-to="services/index.html">
             Services
           </button>
           <button 
             class="phase-2 project backlit" 
-            nav-to="spirit" 
-            splash="spirit" 
-            hidden="true">
-            Spirit
+            nav-to="polder/index.md" 
+            splash="polder" 
+            hidden>
+            Polder
           </button>
           <button 
-            class="phase-2 project backlit" nav-to="hedronic"
+            class="phase-2 project backlit" 
+            nav-to="hedronic/index.md"
             splash="hedronic"
-            hidden="true">
+            hidden>
             Hedronic
           </button>
   
@@ -110,9 +119,11 @@
             Contact
           </button> -->
         </div>
+      </div>
+      <div id="footer">
         <br>
         <p>
-          <a class="backlit" href="https://x.com/i_am_feenster">Twitter / X</a>
+          <a class="backlit" href="https://x.com/i_am_feenster">Twitter</a>
           |
           <a class="backlit" href="https://github.com/josfeenstra">Github</a>
           |
@@ -131,5 +142,4 @@
     </div>
   </div>
 </body>
-
 </html>
