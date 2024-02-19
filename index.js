@@ -10,26 +10,26 @@ function main() {
     configureFunToggle();
 }
 
-var fun_toggle = 0;
+var fun_toggle = 1;
 function configureFunToggle() {
     d.querySelector(".fun-toggle").onclick = () => {
         fun_toggle = (fun_toggle + 1) % 5;
         if (fun_toggle == 0) {
             sphereGoto("inside");
-        } 
+        }
         if (fun_toggle == 1) {
             sphereGoto("side");
-        } 
+        }
         if (fun_toggle == 2) {
             sphereGoto("bottom");
-        } 
+        }
         if (fun_toggle == 3) {
             sphereGoto("top");
-        } 
+        }
         if (fun_toggle == 4) {
             sphereGoto("overview");
-        } 
-        
+        }
+
     };
 }
 
@@ -43,7 +43,7 @@ function configureNavButtons() {
         if (splash != null) {
             btn.style.background = `linear-gradient(rgba(0.3, 0.3, 0.3, 0.8), rgba(0.3, 0.3, 0.3, 0.8)), center / cover no-repeat url(./pages/${splash}/splash.png`;
         }
-        
+
         btn.onclick = async (ev) => {
             console.log("go to: ", nav);
             d.querySelector("#main-page").hidden = true;
@@ -81,7 +81,7 @@ function configureNavButtons() {
 
 
 
-function sphereGoto(tag="inside") {
+function sphereGoto(tag = "inside") {
     d.querySelector("canvas").setAttribute("data-goto", tag);
 }
 
@@ -104,9 +104,9 @@ function configurePhaseButtons() {
  * @param {string} name 
  * @returns {Element[]}
  */
-function getElementsByClassName(name="") {
+function getElementsByClassName(name = "") {
     return Array.from(d.getElementsByClassName(name));
 }
-function query(q="") {
+function query(q = "") {
     return Array.from(d.querySelectorAll(q));
 }
