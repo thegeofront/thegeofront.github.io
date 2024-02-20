@@ -41,7 +41,7 @@ function configureNavButtons() {
         let nav = btn.getAttribute("nav-to");
         let splash = btn.getAttribute("splash");
         if (splash != null) {
-            btn.style.background = `linear-gradient(rgba(0.3, 0.3, 0.3, 0.8), rgba(0.3, 0.3, 0.3, 0.8)), center / cover no-repeat url(./pages/${splash}/splash.png`;
+            btn.style.background = `linear-gradient(var(--dark-transparant), var(--dark-transparant)), center / cover no-repeat url(./pages/${splash}/splash.png`;
         }
 
         btn.onclick = async (ev) => {

@@ -25,6 +25,7 @@
 
   <style>
     /* this needs to be included, so that it always runs no matter what */
+
     * {
       animation: show 500ms;
     }
@@ -51,12 +52,23 @@
         opacity: 0;
       }
     }
+
+    #canvas {
+      /* animation: fade-in 0.5s; */
+      background-image: linear-gradient(to bottom right, #787a83, #3d3f47);
+      outline: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
   </style>
 </head>
 
 <body>
-  <canvas id="canvas" tabindex="0" data-goto="side" data-filled="1" data-sub-count="2"
-    style="outline: none; position: absolute; left: 0; top: 0; width: 100vw; height: 100vh; z-index: -1;">
+  <canvas id="canvas" tabindex="0" data-goto="side" data-filled="1" data-sub-count="2">
     <!-- TODO: add spinny ball here -->
     <div id="backdrop"></div>
     <div id="interface"></div>
@@ -75,7 +87,7 @@
         </div>
       </div>
       <div id="main-page">
-        <a class="fun-toggle backlit">
+        <a class="fun-toggle highlit">
           <img src="./assets/logo_and_title.png" class="logo" alt="Geofront Logo" />
         </a>
         <br>
