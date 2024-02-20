@@ -4,9 +4,9 @@
 
   --dark-transparant: #34363dd0;
 
-  --dark: #34363d;
+  --dark: #393b43;
   --neon-blue: #4fb7fc;
-  --dark-neon-blue: #646cff;
+  --dark-neon-blue: rgb(127, 127, 251);
 
   --some-interesting-color: #ff6464;
 
@@ -50,12 +50,18 @@ a {
   color: var(--dark-neon-blue);
   text-decoration: inherit;
   will-change: color;
-  transition: color 200ms;
+  transition: color 100ms;
+  filter: drop-shadow(0 0 0.2em #646cffaa);
 }
 
 a:hover {
   color: white;
   font-weight: bold;
+  filter: drop-shadow(0 0 2em #3178c6aa);
+}
+
+a.vanilla:hover {
+  filter: drop-shadow(0 0 2em #3178c6aa);
 }
 
 
@@ -68,7 +74,7 @@ body {
 }
 
 ::selection {
-  background: #1a3879;
+  background: var(--dark-neon-blue);
   color: white;
 }
 
@@ -117,6 +123,10 @@ p {
 
 .backlit {
   filter: drop-shadow(0 0 0.2em #646cffaa);
+}
+
+.highlit {
+  filter: none
 }
 
 .backlit,
