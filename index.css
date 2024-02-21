@@ -1,14 +1,16 @@
 :root {
+  --color-1: rgb(57, 175, 184);
+  --color-2: #aaf7e0;
+  --color-3: rgb(127, 236, 251);
+  --color-4: #262f4d;
+  --color-5: #ff6464;
+
+  --gray-1: #262f4d;
+  --dark-transparant: #262f4db9;
+  --dark: #393b43;
+
   --logo-size: 40vmin;
   --logo-padding: 0.5em;
-
-  --dark-transparant: #34363dd0;
-
-  --dark: #393b43;
-  --neon-blue: #4fb7fc;
-  --dark-neon-blue: rgb(127, 127, 251);
-
-  --some-interesting-color: #ff6464;
 
   font-family: 'Fira Code', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -47,21 +49,21 @@
 a {
   margin-top: 0px;
   font-weight: 600;
-  color: var(--dark-neon-blue);
+  color: var(--color-3);
   text-decoration: inherit;
   will-change: color;
   transition: color 100ms;
-  filter: drop-shadow(0 0 0.2em #646cffaa);
+  filter: drop-shadow(0 0 0.2em var(--color-1));
 }
 
 a:hover {
   color: white;
   font-weight: bold;
-  filter: drop-shadow(0 0 2em #3178c6aa);
+  filter: drop-shadow(0 0 2em var(--color-1));
 }
 
 a.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
+  filter: drop-shadow(0 0 2em var(--color-1));
 }
 
 
@@ -74,7 +76,7 @@ body {
 }
 
 ::selection {
-  background: var(--dark-neon-blue);
+  background: var(--color-4);
   color: white;
 }
 
@@ -122,7 +124,7 @@ p {
 }
 
 .backlit {
-  filter: drop-shadow(0 0 0.2em #646cffaa);
+  filter: drop-shadow(0 0 0.2em var(--color-1));
 }
 
 .highlit {
@@ -137,12 +139,12 @@ p {
 
 .backlit:hover,
 .highlit:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em var(--color-1));
 }
 
 .backlit.vanilla:hover,
 .highlit.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
+  filter: drop-shadow(0 0 2em var(--color-1));
 }
 
 button {
@@ -152,13 +154,13 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: var(--dark);
+  background-color: var(--gray-1);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
 button:hover {
-  border-color: var(--dark-neon-blue);
+  border-color: var(--color-3);
 }
 
 button:focus,
