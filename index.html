@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./assets/logo.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geofront</title>
+  <meta name="description" content="Spatial Software Creations & Consultancy">
+  <meta name="keywords"
+    content="Jos, Feenstra, Jos Feenstra, josfeenstra, developer, engineer, Bevy, Rust, Consultant, 3D, grasshopper, geomatics, TU Delft">
+  <meta name="author" content="Jos Feenstra">
+
+  <meta property="og:title" content="GEOFRONT">
+  <meta property="og:image" content="https://geofront.nl/assets/visite.png">
+  <meta property="og:description" content="Spatial Software Creations & Consultancy">
+  <meta property="og:url" content="https://geofront.nl">
+
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Code" rel="stylesheet">
+
+  <script src="./libraries/geon_sphere_background/index.js"></script>
+  <script src="./index.js"></script>
+  <script src="./libraries/showdown/showdown.js"></script>
+
+  <style>
+    /* this needs to be included, so that it always runs no matter what */
+
+    * {
+      animation: show 500ms;
+    }
+
+    /* Keyframes */
+    @keyframes show {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes hide {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: scaleY(0);
+        height: 0%;
+        opacity: 0;
+      }
+    }
+
+    #canvas {
+      /* animation: fade-in 0.5s; */
+      background-image: linear-gradient(to bottom right, #787a83, #3d3f47);
+      outline: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" tabindex="0" data-goto="side" data-filled="1" data-sub-count="2">
+    <!-- TODO: add spinny ball here -->
+    <div id="backdrop"></div>
+    <div id="interface"></div>
+  </canvas>
+  <div class="scroll-container">
+    <div class="scroll-item" id="app">
+      <div id="markdown-page" hidden>
+        <div id="markdown-container">
+
+        </div>
+        <br>
+        <div class="padded">
+          <button class="backlit back-button">
+            Back
+          </button>
+        </div>
+      </div>
+      <div id="main-page">
+        <a class="fun-toggle highlit">
+          <img src="./assets/logo_and_title.png" class="logo" alt="Geofront Logo" />
+        </a>
+        <br>
+        <div class="phase-1">
+          <h2>
+            Jos Feenstra
+          </h2>
+          <p>
+            Developer and Designer of <br> CAD, BIM, GIS, and overall 3D Solutions
+          </p>
+        </div>
+        <br>
+        <div class="padded">
+          <button id="next-phase" class="phase-1 backlit">
+            Creations
+          </button>
+          <button class="phase-1 backlit" nav-to="services/index.html">
+            Services
+          </button>
+          <button class="phase-2 project backlit" nav-to="polder/index.md" splash="polder" hidden>
+            Polder
+          </button>
+          <button class="phase-2 project backlit" nav-to="hedronic/index.md" splash="hedronic" hidden>
+            Hedronic
+          </button>
+
+          <!-- <button>
+            Services
+          </button> -->
+
+          <!-- <button>
+            About
+          </button> -->
+          <!-- <button>
+            Contact
+          </button> -->
+        </div>
+      </div>
+      <div id="footer">
+        <br>
+        <p>
+          <a href="https://x.com/i_am_feenster">Twitter</a>
+          |
+          <a href="https://github.com/josfeenstra">Github</a>
+          |
+          <a href="https://discordapp.com/users/i_am_feenster">Discord</a>
+          |
+          <!-- <a class="backlit" href="https://josfeenstra.nl">Portfolio</a>
+          | -->
+          <a href="mailto:info@geofront.nl">Email</a>
+          |
+          <a href="https://www.linkedin.com/in/jos-feenstra">LinkedIn</a>
+        </p>
+        <p style="font-size: 0.8em; color: hsl(231, 3%, 51%)">
+          (c) 2024 Jos Feenstra
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
