@@ -51,12 +51,24 @@
         opacity: 0;
       }
     }
+
+    #canvas {
+      /* animation: fade-in 0.5s; */
+      background-image: linear-gradient(to bottom right, #677896, #243370);
+      outline: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+
   </style>
 </head>
 
 <body>
-  <canvas id="canvas" tabindex="0" data-goto="inside" data-filled="1" data-sub-count="2"
-    style="outline: none; position: absolute; left: 0; top: 0; width: 100vw; height: 100vh; z-index: -1;">
+  <canvas id="canvas" tabindex="0" data-goto="inside" data-filled="1" data-sub-count="2">
     <!-- TODO: add spinny ball here -->
     <div id="backdrop"></div>
     <div id="interface"></div>
