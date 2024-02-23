@@ -8,107 +8,107 @@ var<uniform> view: View;
 
 //////////////////////////////////////////// Prepass business
 
-// var<private> sobel_x: array<f32, 9> = array<f32, 9>(
-//     1.0,
-//     0.0,
-//    -1.0,
-//     2.0,
-//     0.0,
-//    -2.0,
-//     1.0,
-//     0.0,
-//    -1.0,
-// );
-// var<private> sobel_y: array<f32, 9> = array<f32, 9>(
-//     1.0,
-//     2.0,
-//     1.0,
-//     0.0,
-//     0.0,
-//     0.0,
-//    -1.0,
-//    -2.0,
-//    -1.0,
-// );
+var<private> sobel_x: array<f32, 9> = array<f32, 9>(
+    1.0,
+    0.0,
+   -1.0,
+    2.0,
+    0.0,
+   -2.0,
+    1.0,
+    0.0,
+   -1.0,
+);
+var<private> sobel_y: array<f32, 9> = array<f32, 9>(
+    1.0,
+    2.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+   -1.0,
+   -2.0,
+   -1.0,
+);
 
-// var<private> edge_depth_threshold: f32 = 0.001;
-// var<private> edge_normal_threshold: f32 = 0.05;
-// var<private> edge_color_threshold: f32 = 0.2;
+var<private> edge_depth_threshold: f32 = 0.001;
+var<private> edge_normal_threshold: f32 = 0.05;
+var<private> edge_color_threshold: f32 = 0.2;
 
-// var<private> neighbours: array<vec2<f32>, 9> = array<vec2<f32>, 9>(
-//     vec2<f32>(-1.0, 1.0),  // 0. top left
-//     vec2<f32>(0.0, 1.0),   // 1. top center
-//     vec2<f32>(1.0, 1.0),   // 2. top right
-//     vec2<f32>(-1.0, 0.0),  // 3. center left
-//     vec2<f32>(0.0, 0.0),   // 4. center center
-//     vec2<f32>(1.0, 0.0),   // 5. center right
-//     vec2<f32>(-1.0, -1.0), // 6. bottom left
-//     vec2<f32>(0.0, -1.0),  // 7. bottom center
-//     vec2<f32>(1.0, -1.0),  // 8. bottom right
-// );
+var<private> neighbours: array<vec2<f32>, 9> = array<vec2<f32>, 9>(
+    vec2<f32>(-1.0, 1.0),  // 0. top left
+    vec2<f32>(0.0, 1.0),   // 1. top center
+    vec2<f32>(1.0, 1.0),   // 2. top right
+    vec2<f32>(-1.0, 0.0),  // 3. center left
+    vec2<f32>(0.0, 0.0),   // 4. center center
+    vec2<f32>(1.0, 0.0),   // 5. center right
+    vec2<f32>(-1.0, -1.0), // 6. bottom left
+    vec2<f32>(0.0, -1.0),  // 7. bottom center
+    vec2<f32>(1.0, -1.0),  // 8. bottom right
+);
 
-// fn detect_edge_depth(frag_coord: vec4<f32>, sample_index: u32) -> f32 {
-//     let depth_modulation = 0.001;
-//     var samples = array<f32, 9>();
-//     for (var i = 0; i < 9; i++) {
-//         let depth = prepass::prepass_depth(frag_coord + neighbours[i].xyxy, sample_index);
-//         samples[i] = depth_modulation / depth;
-//     }
+fn detect_edge_depth(frag_coord: vec4<f32>, sample_index: u32) -> f32 {
+    let depth_modulation = 0.001;
+    var samples = array<f32, 9>();
+    for (var i = 0; i < 9; i++) {
+        let depth = prepass::prepass_depth(frag_coord + neighbours[i].xyxy, sample_index);
+        samples[i] = depth_modulation / depth;
+    }
 
-//     var horizontal = vec4<f32>(0.0);
-//     for (var i = 0; i < 9; i++) {
-//         horizontal += samples[i] * sobel_x[i];
-//     }
+    var horizontal = vec4<f32>(0.0);
+    for (var i = 0; i < 9; i++) {
+        horizontal += samples[i] * sobel_x[i];
+    }
 
-//     var vertical = vec4<f32>(0.0);
-//     for (var i = 0; i < 9; i++) {
-//         vertical += samples[i] * sobel_y[i];
-//     }
+    var vertical = vec4<f32>(0.0);
+    for (var i = 0; i < 9; i++) {
+        vertical += samples[i] * sobel_y[i];
+    }
 
-//     var edge = sqrt(dot(horizontal, horizontal) + dot(vertical, vertical));
-//     if edge < edge_depth_threshold {
-//         return 0.0;
-//     }
-//     return edge * 2.0;
-// }
+    var edge = sqrt(dot(horizontal, horizontal) + dot(vertical, vertical));
+    if edge < edge_depth_threshold {
+        return 0.0;
+    }
+    return edge * 2.0;
+}
 
-// fn detect_edge_normal(frag_coord: vec4<f32>, sample_index: u32) -> f32 {
-//     var samples = array<vec3<f32>, 9>();
-//     for (var i = 0; i < 9; i++) {
-//         samples[i] = prepass::prepass_normal(frag_coord + (neighbours[i].xyxy * 1.0), sample_index);
-//     }
+fn detect_edge_normal(frag_coord: vec4<f32>, sample_index: u32) -> f32 {
+    var samples = array<vec3<f32>, 9>();
+    for (var i = 0; i < 9; i++) {
+        samples[i] = prepass::prepass_normal(frag_coord + (neighbours[i].xyxy * 1.0), sample_index);
+    }
 
-//     var horizontal = vec3<f32>(0.0);
-//     for (var i = 0; i < 9; i++) {
-//         horizontal += samples[i].xyz * sobel_x[i];
-//     }
+    var horizontal = vec3<f32>(0.0);
+    for (var i = 0; i < 9; i++) {
+        horizontal += samples[i].xyz * sobel_x[i];
+    }
 
-//     var vertical = vec3<f32>(0.0);
-//     for (var i = 0; i < 9; i++) {
-//         vertical += samples[i].xyz * sobel_y[i];
-//     }
+    var vertical = vec3<f32>(0.0);
+    for (var i = 0; i < 9; i++) {
+        vertical += samples[i].xyz * sobel_y[i];
+    }
 
-//     var edge = sqrt(dot(horizontal, horizontal) + dot(vertical, vertical));
-//     if edge < edge_normal_threshold {
-//         return 0.0;
-//     }
+    var edge = sqrt(dot(horizontal, horizontal) + dot(vertical, vertical));
+    if edge < edge_normal_threshold {
+        return 0.0;
+    }
+    return edge;
+}
+
+// fn detect_edge(frag_coord: vec2<f32>, sample_index: u32) -> f32 {
+//     let edge_depth = detect_edge_depth(frag_coord, sample_index);
+//     let edge_normal = detect_edge_normal(frag_coord, sample_index);
+//     // let edge_color = detect_edge_color(in.uv, resolution);
+//     let edge = max(edge_depth, edge_normal);
 //     return edge;
 // }
 
-// // fn detect_edge(frag_coord: vec2<f32>, sample_index: u32) -> f32 {
-// //     let edge_depth = detect_edge_depth(frag_coord, sample_index);
-// //     let edge_normal = detect_edge_normal(frag_coord, sample_index);
-// //     // let edge_color = detect_edge_color(in.uv, resolution);
-// //     let edge = max(edge_depth, edge_normal);
-// //     return edge;
-// // }
+fn detect_edge(frag_coord: vec4<f32>, sample_index: u32) -> f32 {
+    let sobel1 = detect_edge_normal(frag_coord, sample_index);
+    var sobel2 = detect_edge_depth(frag_coord, sample_index);
 
-// fn detect_edge(frag_coord: vec4<f32>, sample_index: u32) -> f32 {
-//     let sobel1 = detect_edge_normal(frag_coord, sample_index);
-//     var sobel2 = detect_edge_depth(frag_coord, sample_index);
-
-//     return max(sobel1, sobel2);
-// }
+    return max(sobel1, sobel2);
+}
 
 /////////////////////////////////////////////
 
@@ -136,9 +136,9 @@ fn fragment(
     let sample_index = 0u;
 
     var edge_detection = 0.0;
-    // if (in.uv.y < 0.90625) {
-    //     edge_detection = 4.0 * detect_edge(in.position, sample_index);
-    // } 
+    if (in.uv.y < 0.90625) {
+        edge_detection = 4.0 * detect_edge(in.position, sample_index);
+    } 
     
     // return vec4(edge_detection, edge_detection, edge_detection, 1.0);
 
