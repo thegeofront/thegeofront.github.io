@@ -95,14 +95,6 @@ fn detect_edge_normal(frag_coord: vec4<f32>, sample_index: u32) -> f32 {
     return edge;
 }
 
-// fn detect_edge(frag_coord: vec2<f32>, sample_index: u32) -> f32 {
-//     let edge_depth = detect_edge_depth(frag_coord, sample_index);
-//     let edge_normal = detect_edge_normal(frag_coord, sample_index);
-//     // let edge_color = detect_edge_color(in.uv, resolution);
-//     let edge = max(edge_depth, edge_normal);
-//     return edge;
-// }
-
 fn detect_edge(frag_coord: vec4<f32>, sample_index: u32) -> f32 {
     let sobel1 = detect_edge_normal(frag_coord, sample_index);
     var sobel2 = detect_edge_depth(frag_coord, sample_index);
@@ -136,9 +128,12 @@ fn fragment(
     let sample_index = 0u;
 
     var edge_detection = 0.0;
+
+    #ifdef USE_EDGE_DETECTION
     if (in.uv.y < 0.90625) {
         edge_detection = 4.0 * detect_edge(in.position, sample_index);
     } 
+    #endif
     
     // return vec4(edge_detection, edge_detection, edge_detection, 1.0);
 
