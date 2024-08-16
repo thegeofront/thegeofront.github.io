@@ -4,7 +4,7 @@ Polder is a historical city builder game set in the Dutch landscape of the lowla
 
 <br>
 
-Polder is in active development. <a href="https://x.com/i_am_feenster">Development updates are posted here</a>. You can play a very, very early demo <a href="https://geofront.nl/project/spirit">Here</a>!
+Polder is in active development. <a href="https://x.com/i_am_feenster">Development updates are posted here</a>
 
 <br>
 
