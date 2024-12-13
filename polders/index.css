@@ -1,0 +1,41 @@
+/* cyrillic-ext */
+@font-face {
+  font-family: 'cool';
+  src: url('assets/cool-font.woff2') format('woff2'),
+    url('assets/cool-font.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'cool';
+  color: #dcd7bb;
+  font-weight: 200;
+
+}
+
+
+.bg-alt {
+  background-color: rgb(46, 41, 40);
+}
+
+a {
+  -webkit-transition: .3s all;
+  -o-transition: .3s all;
+  transition: .3s all;
+  color: rgb(188, 186, 125);
+}
+
+
+a:hover,
+a:focus,
+a:active {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}

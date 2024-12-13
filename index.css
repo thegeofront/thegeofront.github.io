@@ -6,10 +6,10 @@
   --color-5: #ff6464;
 
   --gray-1: #262f4d;
-  --dark-transparant: #262f4db9;
+  --dark-transparant: #262f4d35;
   --dark: #393b43;
 
-  --logo-size: 40vmin;
+  --logo-size: 15vmin;
   --logo-padding: 0.5em;
 
   font-family: 'Fira Code', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -169,10 +169,10 @@ button:focus-visible {
 }
 
 .project {
-  margin-top: 0.5em;
-  width: 20vmin;
-  height: 20vmin;
-  outline: 2px auto -webkit-focus-ring-color;
+  /* margin-top: 0.5em; */
+  width: 60vmin;
+  height: 60vmin;
+  outline: 4px auto -webkit-focus-ring-color;
   background-position: center;
   background-size: cover;
 }

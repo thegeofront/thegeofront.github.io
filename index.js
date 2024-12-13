@@ -41,29 +41,12 @@ function configureNavButtons() {
         let nav = btn.getAttribute("nav-to");
         let splash = btn.getAttribute("splash");
         if (splash != null) {
-            btn.style.background = `linear-gradient(var(--dark-transparant), var(--dark-transparant)), center / cover no-repeat url(./pages/${splash}/splash.png`;
+            btn.style.background = `linear-gradient(var(--dark-transparant), var(--dark-transparant)), center / cover no-repeat url(./${splash}/splash.png`;
         }
 
         btn.onclick = async (ev) => {
             console.log("go to: ", nav);
-            d.querySelector("#main-page").hidden = true;
-            d.querySelector("#markdown-page").hidden = false;
-
-            // load markdown
-            let path = `pages/${nav}`;
-            let res = await fetch(path);
-            let text = await res.text();
-
-            let html = "";
-            if (path.endsWith("html")) {
-                html = text;
-            }
-            if (path.endsWith("md")) {
-                var converter = new showdown.Converter();
-                html = converter.makeHtml(text);
-            }
-
-            d.querySelector("#markdown-container").innerHTML = html;
+            window.location.href = "./polders"
         };
     }
 
