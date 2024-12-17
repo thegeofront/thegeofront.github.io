@@ -16,13 +16,15 @@ body {
 }
 
 html {
-    background: url("https://pouncelight.games/tiny-glade/background.png") no-repeat center center fixed;
+    background: url("/polders/assets/main/titlebackground.png") no-repeat center center fixed;
     background-position: center;
 }
 
 body {
     background: none !important;
 }
+
+
 
 main.frontpage a {
     -webkit-transition: color 0.2s ease-out;
@@ -35,14 +37,14 @@ main.frontpage a:hover {
     color: #333
 }
 
-main.page a {
+a {
     color: #fff;
     -webkit-transition: text-shadow 0.1s ease-out;
     -moz-transition: text-shadow 0.1s ease-out;
     transition: text-shadow 0.1s ease-out
 }
 
-main.page a:hover {
+a:hover {
     color: #fff;
     text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.75)
 }
@@ -66,13 +68,13 @@ img.portrait {
     max-height: 300px
 }
 
-img.glow {
+glow {
     -webkit-transition: -webkit-filter 0.1s ease-out;
     -moz-transition: -webkit-filter 0.1s ease-out;
     transition: -webkit-filter 0.1s ease-out
 }
 
-img.glow:hover {
+glow:hover {
     -webkit-filter: drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.75))
 }
 
@@ -85,29 +87,10 @@ main.frontpage {
     margin-top: 20vh
 }
 
-main.frontpage .column.left {
+main.frontpage {
     text-align: end
 }
 
-main.frontpage .column.right h1 {
-    margin-left: -10px;
-    margin-bottom: 0.4em
-}
-
-main.frontpage .column.right h2 {
-    margin-left: -4px;
-    margin-top: 0
-}
-
-main.frontpage .column.right .links {
-    margin-top: 2.5rem;
-    font-size: 1.5rem
-}
-
-main.frontpage .column.right .links a {
-    margin-right: 0.5rem;
-    text-decoration: none
-}
 
 @media screen and (max-width: 992px) {
     main.frontpage {
@@ -137,12 +120,12 @@ main.page .column.left {
     text-align: end
 }
 
-main.page .column.right .links {
+.links {
     margin-top: 3vh;
     font-size: 3vh
 }
 
-main.page .column.right .links a {
+.links a {
     margin: 0 1vh 0 1vh;
     text-decoration: none
 }
@@ -171,6 +154,7 @@ footer {
 }
 
 
+
 img.portrait {
     border: 10px solid #FFF !important;
 }
@@ -179,5 +163,24 @@ img.portrait {
     font-family: 'cool';
     font-size: 4vh;
     text-decoration: none;
-    margin-top: 300px;
+    color: white;
+}
+
+.hero-text {
+    font-size: 3vh;
+    line-height: 4vh;
+}
+
+.shadowed {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+}
+
+@media screen and (max-width: 500px) {
+    .hero-text {
+        font-size: 2.5vh;
+    }
+}
+
+.centered {
+    text-align: center;
 }
