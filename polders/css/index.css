@@ -1,13 +1,3 @@
-/* cyrillic-ext */
-@font-face {
-  font-family: 'cool';
-  src: url('assets/cool-font.woff2') format('woff2'),
-    url('assets/cool-font.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
 h1,
 h2,
 h3,

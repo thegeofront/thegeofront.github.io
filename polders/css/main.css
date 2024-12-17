@@ -1,0 +1,183 @@
+html,
+body {
+    color: #fff;
+    padding: 0;
+    margin: 0
+}
+
+html {
+    font-family: Montserrat, "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    overflow-y: auto
+}
+
+body {
+    background-color: #6FCDBD
+}
+
+html {
+    background: url("https://pouncelight.games/tiny-glade/background.png") no-repeat center center fixed;
+    background-position: center;
+}
+
+body {
+    background: none !important;
+}
+
+main.frontpage a {
+    -webkit-transition: color 0.2s ease-out;
+    -moz-transition: color 0.2s ease-out;
+    transition: color 0.2s ease-out;
+    color: #fff
+}
+
+main.frontpage a:hover {
+    color: #333
+}
+
+main.page a {
+    color: #fff;
+    -webkit-transition: text-shadow 0.1s ease-out;
+    -moz-transition: text-shadow 0.1s ease-out;
+    transition: text-shadow 0.1s ease-out
+}
+
+main.page a:hover {
+    color: #fff;
+    text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.75)
+}
+
+h1 {
+    font-size: 15vw
+}
+
+h2 {
+    font-size: 2.5rem
+}
+
+img.portrait {
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 10px solid #fff;
+    margin: 2em 3em;
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    max-height: 300px
+}
+
+img.glow {
+    -webkit-transition: -webkit-filter 0.1s ease-out;
+    -moz-transition: -webkit-filter 0.1s ease-out;
+    transition: -webkit-filter 0.1s ease-out
+}
+
+img.glow:hover {
+    -webkit-filter: drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.75))
+}
+
+.column {
+    flex: 1
+}
+
+main.frontpage {
+    display: flex;
+    margin-top: 20vh
+}
+
+main.frontpage .column.left {
+    text-align: end
+}
+
+main.frontpage .column.right h1 {
+    margin-left: -10px;
+    margin-bottom: 0.4em
+}
+
+main.frontpage .column.right h2 {
+    margin-left: -4px;
+    margin-top: 0
+}
+
+main.frontpage .column.right .links {
+    margin-top: 2.5rem;
+    font-size: 1.5rem
+}
+
+main.frontpage .column.right .links a {
+    margin-right: 0.5rem;
+    text-decoration: none
+}
+
+@media screen and (max-width: 992px) {
+    main.frontpage {
+        flex-direction: column;
+        margin-top: 0
+    }
+
+    main.frontpage .column.left {
+        text-align: center
+    }
+
+    main.frontpage .column.right h1 {
+        margin-top: 0
+    }
+
+    main.frontpage img.portrait {
+        margin: 0
+    }
+}
+
+main.page {
+    display: flex;
+    margin-top: 10vh
+}
+
+main.page .column.left {
+    text-align: end
+}
+
+main.page .column.right .links {
+    margin-top: 3vh;
+    font-size: 3vh
+}
+
+main.page .column.right .links a {
+    margin: 0 1vh 0 1vh;
+    text-decoration: none
+}
+
+main.page {
+    flex-direction: column;
+    margin-top: 11vh
+}
+
+main.page .column.left {
+    text-align: center
+}
+
+main.page .column.right h1 {
+    margin-top: 0
+}
+
+main.page img.portrait {
+    margin: 0
+}
+
+footer {
+    display: flex;
+    margin-top: 3rem;
+    font-size: 0.75rem
+}
+
+
+img.portrait {
+    border: 10px solid #FFF !important;
+}
+
+.old-font {
+    font-family: 'cool';
+    font-size: 4vh;
+    text-decoration: none;
+    margin-top: 300px;
+}
