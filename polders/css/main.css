@@ -49,6 +49,18 @@ a:hover {
     text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.75)
 }
 
+input {
+    color: #fff;
+    -webkit-transition: text-shadow 0.1s ease-out;
+    -moz-transition: text-shadow 0.1s ease-out;
+    transition: text-shadow 0.1s ease-out
+}
+
+input:hover {
+    color: #fff;
+    text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.75)
+}
+
 h1 {
     font-size: 15vw
 }
@@ -161,7 +173,7 @@ img.portrait {
 
 .old-font {
     font-family: 'cool';
-    font-size: 4vh;
+    font-size: 3.5vh;
     text-decoration: none;
     color: white;
 }
@@ -183,4 +195,62 @@ img.portrait {
 
 .centered {
     text-align: center;
+}
+
+input[type="text"],
+input[type="email"] {
+    background-color: #32303ccc;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 5px 10px;
+
+    font-size: 2vh;
+
+    height: 3vh;
+    width: 30vh;
+}
+
+input[type="submit"] {
+    background-color: transparent;
+    border-color: transparent;
+
+    font-family: 'cool';
+    font-size: 3.5vh;
+    text-decoration: none;
+    color: white;
+
+}
+
+input[type="submit"]:hover {
+    color: #fff;
+}
+
+input:focus {
+    /* color: red; */
+    outline: 2px solid orange;
+}
+
+/* Tooltip*/
+
+.coming-soon {
+    position: relative;
+}
+
+.coming-soon::after {
+    content: "Coming Soon!";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    background-color: #333333de;
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+    display: none;
+}
+
+.coming-soon:hover::after {
+    display: block;
 }

@@ -34,22 +34,55 @@
                     and fight the merciless sea <br> for every last piece of land -->
                 </span>
             </div>
-            <!-- <div style="margin-bottom: 1vh;">
-                <a class="glow old-font" href="https://TODO.todo">
-                    WISHLIST
-                </a>
-            </div>
-            <div style="margin-bottom: 1vh;">
-                <a class="glow old-font" href="https://TODO.todo">
-                    NEWSLETTER
-                </a>
-            </div> -->
+
+
+            <!-- <div id="subscribe-page" style="display: none; transition: display 0.5s ease;"> -->
+            <!-- <div>
+                    <img src="assets/divider.png" style="height: 5vh; transform: translate(10px) rotate(180deg);">
+                    <img src="assets/divider.png" style="height: 5vh; transform: translate(-10px)">
+                </div> -->
+            <form action="https://sendy.geofront.nl/subscribe" method="POST" accept-charset="utf-8">
+                <!-- <label for="name">Name</label><br /> -->
+                <input class="shadowed" type="text" name="name" id="name" placeholder="Name" />
+                <br />
+                <!-- <label for="email">Email</label><br /> -->
+                <br>
+                <input class="shadowed" type="email" name="email" id="email" placeholder="Email" /><br />
+                <div style="display:none;">
+                    <label for="hp">HP</label><br />
+                    <input type="text" name="hp" id="hp" />
+                </div>
+                <input type="hidden" name="list" value="lxFrKuHuu9v0azcczL3ruw" />
+                <input type="hidden" name="subform" value="yes" />
+                <br>
+                <input type="submit" name="submit" id="submit" value="JOIN NEWSLETTER" />
+            </form>
             <div>
-                <a class="glow old-font"
-                    href="https://drive.google.com/drive/folders/1HwGBLcsQ7jicy_8bDgiBvlIpRxscI8va?usp=sharing">
-                    PRESSKIT
-                </a>
+                <img src="assets/divider.png"
+                    style="height: 2vh; transform: translate(10px) rotate(180deg); filter: brightness(70%)">
+                <img src="assets/divider.png" style="height: 2vh; transform: translate(-10px); filter: brightness(70%)">
             </div>
+            <!-- </div> -->
+            <div id="main-page" style="transition: 0.5s ease;">
+                <div class="coming-soon" style="margin-bottom: 1vh;">
+                    <a class="glow old-font" aria-disabled="">
+                        WISHLIST
+                    </a>
+                </div>
+                <!-- <div style="margin-bottom: 1vh;">
+                    <a class="glow old-font" href="#subscribe">
+                        NEWSLETTER
+                    </a>
+                </div> -->
+                <div>
+                    <a class="glow old-font"
+                        href="https://drive.google.com/drive/folders/1HwGBLcsQ7jicy_8bDgiBvlIpRxscI8va?usp=sharing">
+                        PRESSKIT
+                    </a>
+                </div>
+            </div>
+
+
             <div class="links">
                 <!-- <a rel="me" href="https://www.tiktok.com/xxxxxxxxxxxxx" title="TikTok">
                     <span class="fab fa-tiktok"></span>
@@ -69,5 +102,26 @@
 
 
 </body>
+<script>
+
+    let listener = function () {
+        console.log(window.location.hash);
+        if (window.location.hash === '#subscribe') {
+            let content = document.getElementById('subscribe-page');
+            content.style.display = 'block';
+            let main = document.getElementById('main-page');
+            main.style.display = 'none';
+        } else {
+            let content = document.getElementById('subscribe-page');
+            content.style.display = 'none';
+            let main = document.getElementById('main-page');
+            main.style.display = 'block';
+        }
+    };
+
+    window.addEventListener("DOMContentLoaded", listener);
+    window.addEventListener("hashchange", listener);
+
+</script>
 
 </html>
