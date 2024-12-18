@@ -2,29 +2,17 @@ html,
 body {
     color: #fff;
     padding: 0;
-    margin: 0
-}
-
-html {
+    margin: 0;
     font-family: Montserrat, "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 16px;
-    overflow-y: auto
-}
-
-body {
-    background-color: #6FCDBD
-}
-
-html {
+    overflow-y: auto;
     background: url("/polders/assets/main/titlebackground.png") no-repeat center center fixed;
     background-position: center;
 }
 
-body {
-    background: none !important;
+*::selection {
+    background-color: orange;
 }
-
-
 
 main.frontpage a {
     -webkit-transition: color 0.2s ease-out;
@@ -125,7 +113,6 @@ main.frontpage {
 
 main.page {
     display: flex;
-    margin-top: 10vh
 }
 
 main.page .column.left {
