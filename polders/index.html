@@ -83,14 +83,14 @@
             </div>
             <!-- </div> -->
             <div id="main-page" style="transition: 0.5s ease;">
-                <div class="coming-soon" style="margin-bottom: 1vh;">
-                    <a class="glow old-font shadowed" aria-disabled="" href="https://store.steampowered.com/app/3417550/">
-                        WISHLIST
+                <div style="margin-bottom: 1vh;">
+                    <a class="glow old-font shadowed" aria-disabled="" id="scrollToSection">
+                        LEARN MORE
                     </a>
                 </div>
-                <!-- <div style="margin-bottom: 1vh;">
-                    <a class="glow old-font" href="#subscribe">
-                        NEWSLETTER
+                <!-- <div class="coming-soon" style="margin-bottom: 1vh;">
+                    <a class="glow old-font shadowed" aria-disabled="" href="https://store.steampowered.com/app/3417550/">
+                        WISHLIST
                     </a>
                 </div> -->
                 <div>
@@ -120,8 +120,17 @@
             </div>
         </div>
     </main>
-
-
+    <section id="targetSection" style = "
+        height: 100vh;
+        background: #493838;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    ">
+        <h2>(Coming Soon)</h2>
+    </section>
+</section>
 
 </body>
 <script>
@@ -144,6 +153,13 @@
     window.addEventListener("DOMContentLoaded", listener);
     window.addEventListener("hashchange", listener);
 
+</script>
+
+<script>
+    document.getElementById('scrollToSection').addEventListener('click', function() {
+        const targetSection = document.getElementById('targetSection');
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+    });
 </script>
 
 </html>
