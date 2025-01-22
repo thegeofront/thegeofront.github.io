@@ -6,7 +6,7 @@ body {
     font-family: Montserrat, "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 16px;
     overflow-y: auto;
-    background: url("/polders/assets/main/titlebackground.png") no-repeat center center fixed;
+    /* background: url("/polders/assets/main/titlebackground.png") no-repeat center center fixed; */
     background-position: center;
 }
 

@@ -1,4 +1,4 @@
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -40,15 +40,6 @@ a:active {
   width: 300px;
 }
 
-/********************************* */
-body,
-html {
-  margin: 0;
-  padding: 0;
-  /* overflow: hidden; */
-  /* Prevent scrollbars */
-}
-
 /* Hero Section with the video background */
 .hero {
   position: relative;
@@ -77,11 +68,13 @@ html {
   /* Brings content above the video */
   color: white;
   text-align: center;
+  height: 100%;
   padding: 20px;
   background: rgba(0, 0, 0, 0.5);
   /* Optional: Semi-transparent background for readability */
 }
 
+/* 
 .hero h1 {
   font-size: 3rem;
   margin: 0;
@@ -89,4 +82,4 @@ html {
 
 .hero p {
   font-size: 1.5rem;
-}
+} */
