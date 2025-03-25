@@ -46,7 +46,7 @@ function configureNavButtons() {
 
         btn.onclick = async (ev) => {
             console.log("go to: ", nav);
-            window.location.href = "./polders"
+            window.location.href = `./${splash}`
         };
     }
 
