@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>POLDERS</title>
+    <title>Waterwolf</title>
     <link rel="icon" type="image/svg+xml" href="./assets/icon.svg" />
     <meta property="og:title" content="POLDERS">
     <meta property="og:image" content="https://geofront.nl/polders/splash.png">
@@ -18,21 +18,20 @@
     <link rel="stylesheet" href="./css/main.css">
 
     <style>
-        
-    * {
-      animation: show 500ms;
-    }
+        * {
+            animation: show 500ms;
+        }
 
-    /* Keyframes */
-    @keyframes show {
-      0% {
-        opacity: 0;
-      }
+        /* Keyframes */
+        @keyframes show {
+            0% {
+                opacity: 0;
+            }
 
-      100% {
-        opacity: 1;
-      }
-    }
+            100% {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 
@@ -44,7 +43,7 @@
                 <img src="assets/icon.svg" style="height: 30vh; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));">
             </div>
             <!-- <img src="assets/main/title-big.png" style="height: 12vh"> -->
-            <h1 class="old-font shadowed" style="font-size: 110px; margin: 0px; letter-spacing: 2px;">POLDERS</h1>
+            <h1 class="old-font shadowed" style="font-size: 110px; margin: 0px; letter-spacing: 2px;">WATERWOLF</h1>
             <div style="margin: 0 0 6vh 0">
                 <span class="hero-text shadowed">
                     The Dutchest of City Builders
@@ -77,6 +76,13 @@
                 <input class="shadowed" type="submit" name="submit" id="submit" value="JOIN NEWSLETTER" />
             </form>
             <div>
+                <div style="margin-bottom: 1vh;">
+                    <a class="glow old-font shadowed" href="https://discord.gg/C2tHqKZ3sz">
+                        JOIN OUR DISCORD
+                    </a>
+                </div>
+            </div>
+            <div>
                 <img src="assets/divider.png"
                     style="height: 2vh; transform: translate(10px) rotate(180deg); filter: brightness(70%)">
                 <img src="assets/divider.png" style="height: 2vh; transform: translate(-10px); filter: brightness(70%)">
@@ -84,7 +90,8 @@
             <!-- </div> -->
             <div id="main-page" style="transition: 0.5s ease;">
                 <div style="margin-bottom: 1vh;">
-                    <a class="glow old-font shadowed" aria-disabled="" href="https://store.steampowered.com/app/3417550/POLDERS">
+                    <a class="glow old-font shadowed" aria-disabled=""
+                        href="https://store.steampowered.com/app/3417550/POLDERS">
                         WISHLIST
                     </a>
                 </div>
@@ -115,10 +122,11 @@
                 <a rel="me" href="https://store.steampowered.com/app/3417550/POLDERS" title="Steam">
                     <span class="shadowed fab fa-steam"></span>
                 </a>
-                
+
                 <div style="margin-top: 1em; font-size: 0.55em" class="shadowed">
-                    <a class="shadowed" rel="me" href="/polders/privacy/privacy.html">Privacy Policy</a>
-                    <a class="shadowed" rel="me" href="/polders/troubleshooting/troubleshooting.html">Troubleshooting</a>
+                    <a class="shadowed" rel="me" href="/waterwolf/privacy/privacy.html">Privacy Policy</a>
+                    <a class="shadowed" rel="me"
+                        href="/waterwolf/troubleshooting/troubleshooting.html">Troubleshooting</a>
                 </div>
             </div>
         </div>
@@ -133,7 +141,7 @@
     ">
         <h2>(More Coming Soon, Stay Tuned!)</h2>
     </section> -->
-</section>
+    </section>
 
 </body>
 <script>
@@ -159,7 +167,7 @@
 </script>
 
 <script>
-    document.getElementById('scrollToSection').addEventListener('click', function() {
+    document.getElementById('scrollToSection').addEventListener('click', function () {
         const targetSection = document.getElementById('targetSection');
         targetSection.scrollIntoView({ behavior: 'smooth' });
     });
