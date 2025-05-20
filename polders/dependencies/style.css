@@ -45,7 +45,8 @@ a:active {
   top: 20px;
   width: 100%;
   z-index: 200;
-  background: #fff;
+  background: transparent !important;
+  color: #fff;
 }
 
 .site-navbar .navbar-brand {
@@ -61,9 +62,6 @@ a:active {
   color: #fff;
 }
 
-.site-navbar.bg-light {
-  background: transparent !important;
-}
 
 @media (max-width: 991.98px) {
   .site-navbar.bg-light {
@@ -92,7 +90,8 @@ a:active {
 
 @media (max-width: 991.98px) {
   .site-navbar .navbar-nav>li>a {
-    color: rgba(0, 0, 0, 0.7) !important;
+    color: #fff !important;
+    font-weight: 700;
   }
 }
 
@@ -101,7 +100,7 @@ a:active {
 }
 
 .site-navbar.scrolled {
-  background: #fff;
+  /* background: transparent; */
   -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.09);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.09);
   position: fixed;
@@ -136,7 +135,7 @@ a:active {
   -webkit-transform: translateY(0%);
   -ms-transform: translateY(0%);
   transform: translateY(0%);
-  background: #fff !important;
+  /* background: transparent !important; */
 }
 
 .site-navbar.scrolled.sleep {
@@ -155,7 +154,8 @@ a:active {
 }
 
 .site-navbar.scrolled .navbar-nav>li>a {
-  color: rgba(0, 0, 0, 0.7) !important;
+  color: #fff !important;
+  font-weight: 700;
 }
 
 .site-navbar.scrolled .navbar-nav>li>a:hover {
@@ -704,4 +704,17 @@ a:active {
 .block-47 .block-47-quote .block-47-quote-author {
   font-size: 14px;
   color: #666666;
+}
+
+.navbar {
+  background-color: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+  border: none;
+}
+
+.navbar-toggler {
+  border: 1px solid white;
 }
