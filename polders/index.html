@@ -82,6 +82,7 @@
         nonce="773082f7-f609-47ae-a06b-11ca6dfe9c5f"></script>
     <script type="text/javascript" charset="UTF-8" src="dependencies/util.js"
         nonce="773082f7-f609-47ae-a06b-11ca6dfe9c5f"></script>
+    <script src="js/language-toggle.js"></script>
 </head>
 
 
@@ -103,16 +104,22 @@
                         <a href="https://thegeofront.nl"><img src="/polders/assets/icon.svg" class="logo"
                                 style="width: 30px;" alt="Geofront Logo" /></a>
                     </li>
-                    <li class="nav-item glow">
+                    <li class="nav-item glow shadowed">
                         <a class="nav-link active" href="#section-home">Home</a>
                     </li>
-                    <li class="nav-item glow">
+                    <li class="nav-item glow shadowed">
                         <a class="nav-link" href="#section-resume">Us</a>
                     </li>
-                    <li class="nav-item glow">
+                    <li class="nav-item glow shadowed">
                         <a class="nav-link" href="#section-contact">Contact</a>
                     </li>
                 </ul>
+            </div>
+            <div class="language-selector">
+                <select id="language-toggle">
+                    <option value="NED" selected>🇳🇱</option>
+                    <option value="ENG">🇬🇧</option>
+                </select>
             </div>
         </div>
     </nav>
@@ -192,23 +199,39 @@
         <div class="container">
             <div class="row mb-5 align-items-center">
                 <div class="col-lg-7 pl-lg-7 shadowed">
-                    <div class="section-heading old-font">
-                        <h3>Zet je schrap om te polderen!</h3>
+
+                    <div class="NED">
+                        <div class="section-heading old-font">
+                            <h3>Zet je schrap om te polderen!</h3>
+                        </div>
+                        <p>
+                            POLDERS is een oer-hollandse sandbox game waarin het zeewater stijgt, je dijken doorbreken,
+                            en
+                            je voor elk stukje land zult moeten vechten tegen de meedogenloze zee...
+                        </p>
+                        <p>
+                            ...En de zee is geen eenvoudige vijand. Haar wraak is meedogenloos, haar kracht
+                            onvoorspelbaar.
+                            Jij bent de enige die tussen hoop en ondergang staat. Zal jij het tij keren, of zal
+                            Oudehaven
+                            voorgoed in de golven van de Waterwolf verdwijnen?
+                        </p>
                     </div>
-                    <p>
-                        POLDERS is een oer-hollandse sandbox game waarin het zeewater stijgt, je dijken doorbreken, en
-                        je voor elk stukje land zult moeten vechten tegen de meedogenloze zee...
-                    </p>
-                    <p>
-                        ...En de zee is geen eenvoudige vijand. Haar wraak is meedogenloos, haar kracht onvoorspelbaar.
-                        Jij bent de enige die tussen hoop en ondergang staat. Zal jij het tij keren, of zal Oudehaven
-                        voorgoed in de golven van de Waterwolf verdwijnen?
-                    </p>
-                    <p hidden>
-                        Construct windmills, <br>
-                        raise your dykes, <br>
-                        and fight the merciless Waterwolf every last piece of land
-                    </p>
+                    <div class="ENG">
+                        <div class="section-heading old-font">
+                            <h3>Get ready to polder!</h3>
+                        </div>
+                        <p>
+                            POLDERS is a quintessentially Dutch sandbox game in which the sealevel rises, the dykes
+                            break, and every piece of land is subject to the mercy of the sea
+                        </p>
+                        <p hidden>
+                            Construct windmills, <br>
+                            raise your dykes, <br>
+                            and fight the merciless Waterwolf every last piece of land
+                        </p>
+                    </div>
+
 
                 </div>
                 <div class="col-lg-5 pr-lg-5 mb-5 mb-lg-0">
@@ -260,7 +283,7 @@
                         <h3 class="mb-4 old-font">Gezellig EN Spannend</h3>
                         <p>
                             Neem overdag de tijd om een prachtige Nederlands stadje en waterverdediging te bouwen.
-                            Wanneer je er klaar voor bent, trotseer je ’s nachts de aanvallen van de zee. Jij bepaalt
+                            Wanneer je er klaar voor bent, trotseer je 's nachts de aanvallen van de zee. Jij bepaalt
                             het tempo!
                         </p>
                     </div>
@@ -296,12 +319,19 @@
                         class="img-fluid" />
                 </div>
                 <div class="col-lg-7">
-                    <H3 class="old-font">Excited for more?</H3>
+                    <div class="NED">
+                        <H3 class="old-font">Zin In meer?</H3>
+                        <p>Schrijf je in voor de nieuwsbrief voor een kijkje achter de schermen, feitjes
+                            over Nederland,
+                            en om in aanmerking te komen voor de closed beta!</p>
+                    </div>
+                    <div class="ENG">
+                        <H3 class="old-font">Excited for more?</H3>
+                        <p>Subscribe to the newsletter for a behind-the-scenes look, fun facts about the
+                            Netherlands,
+                            and to be eligible for the closed beta!</p>
+                    </div>
 
-                    <p>Schrijf je in voor de nieuwsbrief voor een kijkje achter de schermen, feitjes over Nederland, en
-                        om
-                        in
-                        aanmerking te komen voor de closed beta!</p>
 
                     <form action="https://sendy.geofront.nl/subscribe" method="POST" accept-charset="utf-8">
                         <!-- <label for="name">Name</label><br /> -->
@@ -325,6 +355,7 @@
                     </form>
                 </div>
             </div>
+        </div>
     </section>
     <footer class="site-footer">
         <div class="container">
