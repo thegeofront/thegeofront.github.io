@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>POLDERS</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/icon.svg" />
+    <meta property="og:title" content="POLDERS">
+    <meta property="og:image" content="https://geofront.nl/polders/assets/main/dani-one.png">
+    <meta property="og:description" content="The Dutchest of City Builders">
+    <meta property="og:url" content="https://geofront.nl">
+
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/fa.css">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <style>
+        * {
+            animation: show 500ms;
+        }
+
+        /* Keyframes */
+        @keyframes show {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+
+        <div class="column" style="text-align: center; margin-top: 11vh">
+
+            <div class="column">
+                <img src="assets/icon.svg" style="height: 30vh; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));">
+            </div>
+            <!-- <img src="assets/main/title-big.png" style="height: 12vh"> -->
+            <h1 class="old-font shadowed" style="font-size: 120px; margin: 0px; letter-spacing: 2px;">POLDERS</h1>
+
+
+            <div style="margin-bottom: 2vh;">
+                <a class="glow old-font shadowed" aria-disabled=""
+                    href="https://store.steampowered.com/app/3417550/POLDERS">
+                    <span class="shadowed fab fa-steam"></span>
+                    WISHLIST
+                    <span class="shadowed fab fa-steam"></span>
+                </a>
+            </div>
+
+            <div>
+                <div style="margin-bottom: 1vh;">
+                    <a class="glow old-font shadowed" href="https://discord.gg/rz9UBzTtKP">
+                        <span class="shadowed fab fa-discord"></span>
+                        DISCORD
+                        <span class="shadowed fab fa-discord"></span>
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- <div id="subscribe-page" style="display: none; transition: display 0.5s ease;"> -->
+            <!-- <div>
+                    <img src="assets/divider.png" style="height: 5vh; transform: translate(10px) rotate(180deg);">
+                    <img src="assets/divider.png" style="height: 5vh; transform: translate(-10px)">
+                </div> -->
+            <form action="https://sendy.geofront.nl/subscribe" method="POST" accept-charset="utf-8">
+                <!-- <label for="name">Name</label><br /> -->
+                <!-- <input class="shadowed" type="text" name="name" id="name" placeholder="Name" /> -->
+                <!-- <br /> -->
+                <!-- <label for="email">Email</label><br /> -->
+                <!-- <br> -->
+                <div>
+                    <input class="shadowed" type="email" name="email" id="email" placeholder="Email" />
+                    <div style="display:none;">
+                        <label for="hp">HP</label><br />
+                        <input type="text" name="hp" id="hp" />
+                    </div>
+                    <input type="hidden" name="list" value="lxFrKuHuu9v0azcczL3ruw" />
+                    <input type="hidden" name="subform" value="yes" />
+                    <br>
+                    <input class="shadowed" type="submit" name="submit" id="submit" value="JOIN NEWSLETTER" />
+                </div>
+                <!-- <br> -->
+            </form>
+            <div style="margin-top: 2em;">
+                <img src="assets/divider.png"
+                    style="height: 2vh; transform: translate(10px) rotate(180deg); filter: brightness(70%)">
+                <img src="assets/divider.png" style="height: 2vh; transform: translate(-10px); filter: brightness(70%)">
+            </div>
+
+            <!-- </div> -->
+            <div id="main-page" style="transition: 0.5s ease;">
+
+                <!-- <div style="margin-bottom: 1vh;">
+                    <a class="glow old-font shadowed" aria-disabled="" id="scrollToSection">
+                        LEARN MORE
+                    </a>
+                </div> -->
+            </div>
+
+
+            <div class="links">
+                <!-- <a rel="me" href="https://www.tiktok.com/xxxxxxxxxxxxx" title="TikTok">
+                    <span class="fab fa-tiktok"></span>
+                </a> -->
+                <a rel="me" href="https://twitter.com/i_am_feenster" title="Twitter">
+                    <span class="shadowed fab fa-twitter"></span>
+                </a>
+                <a rel="me" href="https://discord.gg/rz9UBzTtKP" title="Discord">
+                    <span class="shadowed fab fa-discord"></span>
+                </a>
+                <a rel="me" href="https://store.steampowered.com/app/3417550/POLDERS" title="Steam">
+                    <span class="shadowed fab fa-steam"></span>
+                </a>
+
+                <div style="margin-top: 1em; font-size: 0.7em" class="shadowed">
+                    <a class="glow shadowed"
+                        href="https://drive.google.com/drive/folders/1HwGBLcsQ7jicy_8bDgiBvlIpRxscI8va?usp=sharing">
+                        Presskit
+                    </a>
+                    <a class="shadowed" rel="me" href="/polders/privacy/privacy.html">Privacy Policy</a>
+                    <a class="shadowed" rel="me"
+                        href="/polders/troubleshooting/troubleshooting.html">Troubleshooting</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- <section id="targetSection" style = "
+        height: 100vh;
+        background: #493838;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    ">
+        <h2>(More Coming Soon, Stay Tuned!)</h2>
+    </section> -->
+    </section>
+
+</body>
+<script>
+
+    let listener = function () {
+        console.log(window.location.hash);
+        if (window.location.hash === '#subscribe') {
+            let content = document.getElementById('subscribe-page');
+            content.style.display = 'block';
+            let main = document.getElementById('main-page');
+            main.style.display = 'none';
+        } else {
+            let content = document.getElementById('subscribe-page');
+            content.style.display = 'none';
+            let main = document.getElementById('main-page');
+            main.style.display = 'block';
+        }
+    };
+
+    window.addEventListener("DOMContentLoaded", listener);
+    window.addEventListener("hashchange", listener);
+
+</script>
+
+<script>
+    document.getElementById('scrollToSection').addEventListener('click', function () {
+        const targetSection = document.getElementById('targetSection');
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
+
+</html>
