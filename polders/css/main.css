@@ -251,6 +251,13 @@ input:focus {
     background-position: center;
 }
 
+.bg-delft {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/polders/assets/img/gezichtopdelft.png");
+    background-size: cover;
+    /* background-position: center; */
+    background-position: center;
+}
+
 .bg-paintover {
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url("/polders/assets/img/paintover-5.png");
     background-size: cover;
