@@ -29,28 +29,6 @@
     <link rel="stylesheet" href="./css/main.css">
 
     <style>
-        /* * {
-            animation: show 500ms;
-        }
-
-        @keyframes show {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        } */
-
-        .my-hero {
-            /* position: relative; */
-            /* width: 100%; */
-            /* height: 100vh; */
-            /* Full viewport height */
-            /* overflow: hidden; */
-        }
-
         .my-hero video {
             position: absolute;
             top: 50%;
@@ -75,6 +53,37 @@
             /* Optional: Semi-transparent background for readability */
             /* background: rgba(0, 0, 0, 0.5); */
         }
+
+        /* Carousel styles */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            /* Adjust as needed */
+            height: 450px;
+            /* Adjust as needed, or make aspect ratio based */
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* or 'contain' */
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            /* Slow transition */
+        }
+
+        .carousel-image.active {
+            opacity: 1;
+        }
     </style>
 
     <script defer="defer" referrerpolicy="origin" src="dependencies/s.js"></script>
@@ -87,7 +96,7 @@
 
 
 <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
-    <nav class="navbar navbar-expand-lg site-navbar navbar-light bg-light sleep" id="pb-navbar">
+    <nav class="navbar navbar-expand-lg site-navbar navbar-light bg-alt sleep" id="pb-navbar">
         <div class="container">
             <button class="navbar-toggler collapsed glow shadowed" type="button" data-toggle="collapse"
                 data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false"
@@ -108,8 +117,8 @@
                         <a class="nav-link active glow shadowed" href="#section-home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link glow shadowed" href="./blog"
-                            onclick="window.location=this.href; return false;">Blog</a>
+                        <a class="nav-link glow shadowed" href="./news"
+                            onclick="window.location=this.href; return false;">News</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link glow shadowed" href="#section-contact">Contact</a>
@@ -173,7 +182,7 @@
                             <a class="glow old-font shadowed"
                                 href="https://sendy.geofront.nl/subscription?f=3J6ld6fiStIA1rKFnTSmRQ1Yx5KBDJ0CnOS626ftKEQPmPR6XwnM2W75pRDD09Th">
                                 <img src="assets/icons/mail-love.svg" alt="">
-                                News
+                                NEWSLETTER
                                 <img src="assets/icons/mail-love.svg" alt="">
                             </a>
                         </div>
@@ -200,14 +209,14 @@
     <section class="site-section" id="section-about" style="background-color: #b8c0c5;">
         <div class="container">
             <div class="row mb-5 align-items-center">
-                <div class="col-lg-7 pl-lg-7 shadowed">
+                <div class="col-lg-5 pl-lg-5 shadowed">
                     <div class="NED">
                         <div class="section-heading old-font">
                             <h3>Het water zal nooit meer over ons heersen...</h3>
                         </div>
                         <p>
                             POLDERS is een sandbox crafting game in oud-Hollands thema waarin je als 17e-eeuwse
-                            dijkgraaf de strijd aangaat met het kolkende water! Blok voor blok transformeer jij het
+                            dijkgraaf de strijd aangaat met het kolkende water. Blok voor blok transformeer jij het
                             complete landschap. Bouw molens, dijken en sluizen om je voeten droog te houden, en breid
                             met grachtenpanden je nederzetting uit van gehucht tot bruizende handelsstad.
                         </p>
@@ -218,14 +227,16 @@
                         </div>
                         <p>
                             POLDERS is a sandbox crafting game with an old-Dutch theme in which you, as a 17th-century
-                            Dyke Warden, battle the swirling waters! Block by block, you transform the entire landscape.
+                            Dyke Warden, battle the relentless waters. Block by block, you transform the entire
+                            landscape.
                             Build windmills, dikes, and sluices to keep your feet dry, and expand your settlement from
                             shabby hamlet to a bussling trading city.
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-5 pr-lg-5 mb-5 mb-lg-0">
-                    <img width="100%" src="assets/img/dani-one.png" alt="Image placeholder" class="rounded img-fluid" />
+                <div class="col-lg-7 pr-lg-7 mb-7 mb-lg-0">
+                    <img width="100%" src="assets/img/screenshot-1.png" alt="Image placeholder"
+                        class="rounded img-fluid" />
                 </div>
             </div>
         </div>
@@ -233,10 +244,20 @@
     <section class="site-section" id="section-gameplay">
         <div class="container">
             <div class="row mb-5 align-items-center">
-                <div class="col-lg-5 pr-lg-5 mb-5 mb-lg-0">
-                    <img width="100%" src="assets/img/dani-one.png" alt="Image placeholder" class="rounded img-fluid" />
+                <div class="col-lg-7 pr-lg-7 mb-7 mb-lg-0">
+
+                    <div class="carousel-container">
+                        <img width="100%" src="assets/img/paintover-1.png" alt="Image placeholder"
+                            class="rounded img-fluid carousel-image" />
+                        <img width="100%" src="assets/img/screenshot-3.jpg" alt="Image placeholder"
+                            class="rounded img-fluid carousel-image" />
+                        <img width="100%" src="assets/img/screenshot-2.jpg" alt="Image placeholder"
+                            class="rounded img-fluid carousel-image" />
+                    </div>
+
+
                 </div>
-                <div class="col-lg-7 pl-lg-7 shadowed">
+                <div class="col-lg-5 pl-lg-5 shadowed">
                     <div class="NED">
                         <div class="section-heading old-font">
                             <h3>Een city builder als geen ander</h3>
@@ -276,10 +297,10 @@
         </div>
     </section>
 
-    <section class="site-section bg-paint" id="section-challenge" style="background-color: #b8c0c5;">
+    <section class="site-section bg-paintover-top" id="section-challenge" style="background-color: #b8c0c5;">
         <div class="container">
             <div class="row mb-5 align-items-center">
-                <div class="col-lg-7 pl-lg-7 shadowed">
+                <div class="col-lg-5 pl-lg-5 shadowed">
                     <div class="NED">
                         <div class="section-heading old-font">
                             <h3>Uitdaging en Vrijheid</h3>
@@ -303,9 +324,10 @@
                             <h3>Challenge and Freedom</h3>
                         </div>
                         <p>
-                            Dike Wardens looking for a challenge can brace themselves! Wind, rain, and All Saints' Day
+                            Dike Wardens looking for a challenge must brace themselves! Wind, rain, and All Saints' Day
                             storms will have to be braved to keep your city safe. Your strategy in POLDERS stands or
-                            falls by how much risk you dare to take with the water. Transport is by water, but are the
+                            falls by how much risk you dare to take with the ferocious Wolf of the Water. Transport is
+                            by water, but are the
                             quays strong enough for this? Polders provide more agricultural land but also require more
                             maintenance, and production halts when the polder is flooded...
                         </p>
@@ -315,8 +337,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-5 pr-lg-5 mb-5 mb-lg-0">
-                    <img width="100%" src="assets/img/dani-one.png" alt="Image placeholder" class="rounded img-fluid" />
+                <div class="col-lg-7 pr-lg-7 mb-5 mb-lg-0">
+                    <img width="100%" src="assets/img/screenshot-4.jpg" alt="Image placeholder"
+                        class="rounded img-fluid" />
                 </div>
             </div>
         </div>
@@ -325,8 +348,14 @@
         <div class="container">
             <div class="row mb-5 align-items-center">
                 <div class="col-lg-5 pr-lg-5 mb-5 mb-lg-0">
-                    <img width="100%" class="rounded" src="assets/img/dani-one.png" alt="Image placeholder"
-                        class="img-fluid" />
+                    <div class="carousel-container">
+                        <img width="100%" class="rounded carousel-image" src="assets/img/paintover-3.png"
+                            alt="Image placeholder" class="img-fluid" />
+                        <img width="100%" class="rounded carousel-image" src="assets/img/passie.gif"
+                            alt="Image placeholder" class="img-fluid" />
+                        <img width="100%" class="rounded carousel-image" src="assets/img/knotwilg.jpeg"
+                            alt="Image placeholder" class="img-fluid" />
+                    </div>
                 </div>
                 <div class="col-lg-7 pl-lg-7 shadowed">
                     <div class="NED">
@@ -334,7 +363,8 @@
                             <h3>Meer dan een spel</h3>
                         </div>
                         <p>
-                            POLDERS is meer dan alleen een vermakelijk spel. Het is geboren uit passie: uit liefde voor
+                            Voor Dani, Martin en mij, is POLDERS meer dan alleen een vermakelijk spel. Het is geboren
+                            uit passie: uit liefde voor
                             Nederland, onze voorouders, en de onmogelijke dans met het water die al eeuwen speelt,
                             hebben we de handen ineengeslagen om een 'echt' Nederlands spel te maken.
                         </p>
@@ -355,19 +385,20 @@
                             <h3>More than a game</h3>
                         </div>
                         <p>
-                            POLDERS is more than just an entertaining game. It was born out of passion: from love for
+                            For Dani, Martin and me, POLDERS is more than just an entertaining game. It was born out of
+                            passion: from love for
                             the Netherlands, our ancestors, and the impossible dance with water that has played out for
-                            centuries, we have joined forces to create a 'truly' Dutch game.
+                            centuries, we have joined forces to create a <b>truly</b> Dutch game.
                         </p>
                         <p>
                             We have spoken extensively with farmers, millers, and cultural institutions. The game
-                            mechanics, such as operating windmills, tow barges, and peat extraction, come directly from
+                            mechanics, such as operating windmills, tow ships, and 'turf' extraction, come directly from
                             cultural history and are presented as accurately as possible. The 3D models are based on
                             real monuments in the Netherlands, and the art style is inspired by Van Ruisdael & Vermeer.
                         </p>
                         <p>
                             In these ways, we want to make POLDERS a cultural-historical experience, connecting players
-                            with the past and present of the landscape we call home.
+                            with the past and present of the landscape the Dutch call home.
                         </p>
                     </div>
                 </div>
@@ -375,10 +406,10 @@
             </div>
         </div>
     </section>
-    <section class="site-section bg-paint">
+    <section class="site-section bg-paintover">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-7 text-center">
+                <div class="col-md-4 text-center">
                     <div class="NED">
                         <H3 class="old-font">Zin In meer?</H3>
                         <p>Schrijf je in voor de nieuwsbrief voor een kijkje achter de schermen, feitjes
@@ -467,6 +498,39 @@
 
     <script async="" src="dependencies/js_002"></script>
     <link rel="stylesheet" href="index.css" />
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const carouselContainers = document.querySelectorAll('.carousel-container'); // Select all carousel containers
+            if (!carouselContainers.length) return; // Exit if no carousel containers are found
+
+            carouselContainers.forEach(carouselContainer => { // Iterate over each carousel container
+                const carouselImages = carouselContainer.querySelectorAll('.carousel-image');
+                let currentImageIndex = 0;
+                const cycleTime = 5000; // 5 seconds for image display (total interval time)
+
+                if (carouselImages.length > 1) { // Only run if there's more than one image
+                    if (carouselImages[currentImageIndex]) { // Check if the first image exists
+                        carouselImages[currentImageIndex].classList.add('active'); // Show the first image
+                    }
+
+                    setInterval(() => {
+                        if (carouselImages[currentImageIndex]) {
+                            carouselImages[currentImageIndex].classList.remove('active');
+                        }
+                        currentImageIndex = (currentImageIndex + 1) % carouselImages.length;
+                        if (carouselImages[currentImageIndex]) {
+                            carouselImages[currentImageIndex].classList.add('active');
+                        }
+                    }, cycleTime);
+                } else if (carouselImages.length === 1) {
+                    if (carouselImages[0]) { // If only one image, just show it
+                        carouselImages[0].classList.add('active');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

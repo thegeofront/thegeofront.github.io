@@ -5,7 +5,8 @@ body {
     margin: 0;
     font-family: Montserrat, "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 16px;
-    background-color: #333;
+    /* background-color: rgb(67, 114, 130); */
+    background-color: rgb(52, 61, 76);
 }
 
 main {
@@ -247,6 +248,20 @@ input:focus {
 
 .bg-paint {
     background: url("/polders/assets/img/paint.png") repeat center center;
+    background-position: center;
+}
+
+.bg-paintover {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url("/polders/assets/img/paintover-5.png");
+    background-size: cover;
+    /* background-position: center; */
+    background-position: center bottom;
+}
+
+.bg-paintover-top {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url("/polders/assets/img/paintover-5.png");
+    background-size: cover;
+    /* background-position: center; */
     background-position: center;
 }
 
