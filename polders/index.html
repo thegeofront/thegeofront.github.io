@@ -58,10 +58,26 @@
         }
 
         .masked {
-            mask-size: 100%, 100%;
-            mask-position: center;
+            -webkit-mask-image: url('/polders/assets/img/cloud-mask.png');
+            -webkit-mask-size: 100% 100%;
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+
+            mask-image: url('/polders/assets/img/cloud-mask.png');
+            mask-size: 100% 100%;
             mask-repeat: no-repeat;
-            mask-image: url("/polders/assets/img/splatter.png");
+            mask-position: center;
+        }
+
+        .m-banner {
+            -webkit-mask-size: 120% 100%;
+            mask-size: 120% 100%;
+
+        }
+
+        .m-top {
+            -webkit-mask-size: 120% 100%;
+            mask-size: 120% 100%;
         }
 
         /* Carousel styles */
@@ -186,7 +202,7 @@
             </div>
         </div>
     </section>
-    <section class="site-section" id="section-about" style="background-color: #b8c0c5;">
+    <section class="site-section masked m-top m-banner" id="section-about" style="background-color: #b8c0c5;">
         <div class="container">
             <div class="row mb-5 align-items-center">
                 <div class="col-lg-5 pl-lg-5 shadowed">
@@ -216,7 +232,7 @@
                 </div>
                 <div class="col-lg-7 pr-lg-7 mb-7 mb-lg-0">
                     <img width="100%" src="assets/img/screenshot-1.png" alt="Image placeholder"
-                        class="rounded img-fluid" />
+                        class="rounded img-fluid masked" />
                 </div>
             </div>
         </div>
@@ -226,7 +242,7 @@
             <div class="row mb-5 align-items-center">
                 <div class="col-lg-7 pr-lg-7 mb-7 mb-lg-0">
 
-                    <div class="carousel-container">
+                    <div class="carousel-container masked">
                         <img width="100%" src="assets/img/paintover-1.png" alt="Image placeholder"
                             class="rounded img-fluid carousel-image" />
                         <img width="100%" src="assets/img/screenshot-3.jpg" alt="Image placeholder"
@@ -279,7 +295,8 @@
         </div>
     </section>
 
-    <section class="site-section bg-paintover-top" id="section-challenge" style="background-color: #b8c0c5;">
+    <section class="site-section bg-paintover-top masked m-banner" id="section-challenge"
+        style="background-color: #b8c0c5;">
         <div class="container">
             <div class="row mb-5 align-items-center">
                 <div class="col-lg-5 pl-lg-5 shadowed">
@@ -322,7 +339,7 @@
                 </div>
                 <div class="col-lg-7 pr-lg-7 mb-5 mb-lg-0">
                     <img width="100%" src="assets/img/screenshot-4.jpg" alt="Image placeholder"
-                        class="rounded img-fluid" />
+                        class="rounded img-fluid masked" />
                 </div>
             </div>
         </div>
@@ -379,12 +396,12 @@
             </div>
         </div>
     </section>
-    <section class="site-section bg-delft my-bottom-hero">
-        <div class="container">
+    <section class="site-section bg-delft my-bottom-hero masked m-banner">
+        <div class="container masked">
             <div class="row justify-content-center">
-                <div class="col-md-7 text-center">
+                <div class="col-md-9 text-center">
                     <div class="NED shadowed">
-                        <H3 class="old-font mb-5">POLDER MEE!</H3>
+                        <h1 class="old-font mb-5">POLDER MEE!</h1>
 
                         <b>POLDERS is goed op weg, maar we zijn er nog niet! Het blijft een cliche, maar de
                             beste
@@ -395,7 +412,7 @@
 
                     </div>
                     <div class="ENG shadowed">
-                        <H3 class="old-font">POLDER WITH US!</H3>
+                        <h1 class="old-font mb-5">POLDER WITH US!</h1>
 
                         <p>POLDERS is well on its way, but we're not there yet! It remains a cliché, but the best way
                             you can help us is by sharing POLDERS with as many people as possible using the socials
@@ -412,7 +429,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-md-6 mb-4">
-                    <div class="email-signup-box">
+                    <div class="email-signup-box masked">
                         <div class="NED shadowed">
                             <h4 class="old-font">POLDERMAIL</h4>
                             <p class="mb-3">Schrijf je in voor de nieuwsbrief voor prachtige art,
@@ -442,7 +459,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
-                    <div class="email-signup-box">
+                    <div class="email-signup-box masked">
                         <div class="NED shadowed">
                             <h4 class="old-font">DISCORD</h4>
                             <p class="mb-3">De community aan enthousiaste polderaars blijft groeien! Wil je met ons

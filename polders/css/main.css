@@ -5,8 +5,9 @@ body {
     margin: 0;
     font-family: Montserrat, "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 18px;
+    --my-background: rgb(52, 61, 76);
     /* background-color: rgb(67, 114, 130); */
-    background-color: rgb(52, 61, 76);
+    background-color: var(--my-background);
 }
 
 main {
@@ -304,10 +305,10 @@ input:focus {
 }
 
 .my-bottom-hero .container {
-    background: rgba(30, 34, 40, 0.65);
+    background: rgba(30, 34, 40, 1.0);
     /* semi-transparent dark bg for readability */
     border-radius: 18px;
-    box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 1.0);
     padding: 32px 16px;
 }
 
