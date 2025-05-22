@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Paintery Test</title>
+    <style>
+        body {
+            background: #222;
+            color: #eee;
+            font-family: sans-serif;
+        }
+
+        .controls {
+            margin: 1em 0;
+        }
+
+        canvas {
+            background: transparent;
+            display: block;
+            margin: 1em 0;
+        }
+
+        label {
+            margin-right: 1em;
+        }
+
+        button {
+            margin-left: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="controls">
+        <label>Width: <input id="width" type="number" value="400" min="10" max="2000"></label>
+        <label>Height: <input id="height" type="number" value="300" min="10" max="2000"></label>
+        <label>Noise: <input id="noise" type="number" value="20" min="1" max="500"></label>
+        <button id="generate">Generate</button>
+        <button id="download">Download PNG</button>
+    </div>
+    <canvas id="canvas" width="400" height="300"></canvas>
+    <script>
+        function randn_bm() {
+            // Box-Muller transform for normal distribution
+            let u = 0, v = 0;
+            while (u === 0) u = Math.random();
+            while (v === 0) v = Math.random();
+            return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+        }
+
+        function drawSplatter(width, height, noise) {
+            const canvas = document.getElementById('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, width, height);
+            // Define white rectangle with margin
+            const marginX = width * 0.1;
+            const marginY = height * 0.1;
+            const rectX = marginX;
+            const rectY = marginY;
+            const rectW = width - 2 * marginX;
+            const rectH = height - 2 * marginY;
+            // Draw white rectangle in the center
+            ctx.save();
+            // ctx.globalAlpha = 1.0;
+            // ctx.fillStyle = 'white';
+            // ctx.fillRect(rectX, rectY, rectW, rectH);
+            ctx.restore();
+            // Draw random circles inside the white rectangle
+            // Math.round(noise * 3 + randn_bm() * noise)
+            const triangleCount = noise;
+            for (let i = 0; i < triangleCount; i++) {
+                // Circle center within the white rectangle
+                const cx = rectX + rectW / 2 + Math.random() * rectW / 4;
+                const cy = rectY + rectH / 2 + Math.random() * rectH / 4;
+                // Circle size (radius)
+                const radius = Math.abs(randn_bm() * 20.0);
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(cx, cy, radius, 0, 2 * Math.PI);
+                ctx.closePath();
+                ctx.fillStyle = `rgba(255,255,255,${0.1 + Math.random() * 0.5})`;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        document.getElementById('generate').onclick = function () {
+            const width = parseInt(document.getElementById('width').value, 10);
+            const height = parseInt(document.getElementById('height').value, 10);
+            const noise = parseFloat(document.getElementById('noise').value);
+            drawSplatter(width, height, noise);
+        };
+
+        document.getElementById('download').onclick = function () {
+            const canvas = document.getElementById('canvas');
+            const link = document.createElement('a');
+            link.download = 'splatter.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        };
+
+        // Initial draw
+        drawSplatter(400, 300, 20);
+    </script>
+</body>
+
+</html>

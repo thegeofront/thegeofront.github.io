@@ -4,7 +4,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: Montserrat, "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     /* background-color: rgb(67, 114, 130); */
     background-color: rgb(52, 61, 76);
 }
@@ -288,4 +288,55 @@ input:focus {
 
 .hidden {
     display: none !important;
+}
+
+.my-bottom-hero .container {
+    background: rgba(30, 34, 40, 0.65);
+    /* semi-transparent dark bg for readability */
+    border-radius: 18px;
+    box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.25);
+    padding: 32px 16px;
+}
+
+/* Email form improvements */
+.email-signup-box {
+    background: rgba(30, 34, 40, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.18);
+    padding: 32px 24px 24px 24px;
+    margin: 32px auto 24px auto;
+    max-width: 420px;
+    text-align: center;
+}
+
+.email-signup-box h4 {
+    font-family: 'cool';
+    font-size: 2.2em;
+    color: #fff;
+    margin-bottom: 0.5em;
+}
+
+.email-signup-box input[type="email"] {
+    width: 80%;
+    margin-bottom: 16px;
+    font-size: 1.1em;
+    padding: 8px 12px;
+}
+
+.email-signup-box input[type="submit"] {
+    font-size: 1em;
+    padding: 7px 18px;
+    border-radius: 6px;
+    margin-top: 8px;
+    background: #b8c0c5;
+    color: #222;
+    font-family: 'cool';
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.10);
+}
+
+.email-signup-box input[type="submit"]:hover {
+    background: #a0aab2;
+    color: #fff;
 }

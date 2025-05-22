@@ -9,8 +9,13 @@
     <title>POLDERS</title>
     <link rel="icon" type="image/svg+xml" href="./assets/icon.svg" />
     <meta property="og:title" content="POLDERS">
-    <meta property="og:image" content="https://geofront.nl/polders/splash.png">
-    <meta property="og:description" content="The Dutch Defiance">
+    <meta property="og:image" content="https://geofront.nl/polders/assets/img/gezichtopdelft.png">
+    <!-- <meta property="og:description" content="The Dutch Defiance"> -->
+    <meta property="og:description" content="POLDERS is a sandbox crafting game with an old-Dutch theme in which you, as a 17th-century
+    Dike Warden, battle the relentless waters. Block by block, you transform the entire
+    landscape.
+    Build windmills, dikes, and sluices to keep your feet dry, and expand your settlement from
+    shabby hamlet to a bussling trading city.">
     <meta property="og:url" content="https://geofront.nl">
 
     <link rel="stylesheet" href="css/index.css" />
@@ -27,6 +32,7 @@
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/fa.css">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/carousel.css">
 
     <style>
         .my-hero video {
@@ -54,36 +60,15 @@
             /* background: rgba(0, 0, 0, 0.5); */
         }
 
+        .masked {
+            mask-size: 100%, 100%;
+            mask-position: center;
+            mask-repeat: no-repeat;
+            mask-image: url("/polders/assets/img/splatter.png");
+        }
+
         /* Carousel styles */
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            /* Adjust as needed */
-            height: 450px;
-            /* Adjust as needed, or make aspect ratio based */
-            margin: 20px auto;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .carousel-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* or 'contain' */
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            /* Slow transition */
-        }
-
-        .carousel-image.active {
-            opacity: 1;
-        }
+        /* Removed inline carousel styles */
     </style>
 
     <script defer="defer" referrerpolicy="origin" src="dependencies/s.js"></script>
@@ -96,7 +81,7 @@
 
 
 <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
-    <nav class="navbar navbar-expand-lg site-navbar navbar-light bg-alt sleep" id="pb-navbar">
+    <nav class="navbar my-navbar-expand site-navbar navbar-light bg-alt sleep" id="pb-navbar">
         <div class="container">
             <button class="navbar-toggler collapsed glow shadowed" type="button" data-toggle="collapse"
                 data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false"
@@ -269,7 +254,8 @@
                             daar waar je vergeet de dijken te controleren!
                         </p>
                         <p>
-                            De gameplay van POLDERS is het best uit te leggen als een sandbox city builder met
+                            De gameplay van POLDERS is het best uit te leggen als een minimalistische sandbox city
+                            builder met
                             automatiseringselementen. Denk aan een mix tussen Townscaper, Terra Nil, Minecraft, en Mini
                             Settlers. POLDERS is uniek als city builder, in dat je fysiek door de wereld loopt, en de
                             gehele wereld door jou aanpasbaar is door het combineren van blokjes tot de juiste gebouwen.
@@ -286,7 +272,8 @@
                             where you forget to check the dikes!
                         </p>
                         <p>
-                            The gameplay of POLDERS is best described as a sandbox city builder with automation
+                            The gameplay of POLDERS is best described as a minimalist sandbox city builder with
+                            automation
                             elements. Think of a mix between Townscaper, Terra Nil, Minecraft, and Mini Settlers.
                             POLDERS is unique as a city builder in that you physically walk through the world, and the
                             entire world is adaptable by you by combining blocks into the correct buildings.
@@ -332,8 +319,9 @@
                             maintenance, and production halts when the polder is flooded...
                         </p>
                         <p>
-                            Sound like too much? Fortunately, the environmental challenges in POLDERS are opt-in.
-                            Creatives aiming to build a beautiful trading city will not be hindered!
+                            Does that sound like too much?
+                            We got you covered: The environmental challenges in POLDERS are opt-in.
+                            We won't stop creatives aiming to build the most beautiful trading city!
                         </p>
                     </div>
                 </div>
@@ -363,12 +351,7 @@
                             <h3>Meer dan een spel</h3>
                         </div>
                         <p>
-                            Voor Dani, Martin en mij, is POLDERS meer dan alleen een vermakelijk spel. Het is geboren
-                            uit passie: uit liefde voor
-                            Nederland, onze voorouders, en de onmogelijke dans met het water die al eeuwen speelt,
-                            hebben we de handen ineengeslagen om een 'echt' Nederlands spel te maken.
-                        </p>
-                        <p>
+                            POLDERS is voor ons meer dan alleen een vermakelijk spel.
                             We hebben uitbundig gesproken met boeren, molenaars en cultuurinstanties. De mechanieken in
                             het spel zoals het draaien van molens, trekschuiten, en turfwinning komen direct uit de
                             cultuurhistorie, en worden zo accuraat mogelijk gepresenteerd. De 3D-modellen zijn gebaseerd
@@ -385,12 +368,7 @@
                             <h3>More than a game</h3>
                         </div>
                         <p>
-                            For Dani, Martin and me, POLDERS is more than just an entertaining game. It was born out of
-                            passion: from love for
-                            the Netherlands, our ancestors, and the impossible dance with water that has played out for
-                            centuries, we have joined forces to create a <b>truly</b> Dutch game.
-                        </p>
-                        <p>
+                            For us, POLDERS is more than just an entertaining game.
                             We have spoken extensively with farmers, millers, and cultural institutions. The game
                             mechanics, such as operating windmills, tow ships, and 'turf' extraction, come directly from
                             cultural history and are presented as accurately as possible. The 3D models are based on
@@ -406,56 +384,81 @@
             </div>
         </div>
     </section>
-    <section class="site-section bg-delft">
+    <section class="site-section bg-delft my-bottom-hero">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-4 text-center shadowed">
-                    <div class="NED">
-                        <H3 class="old-font">Zin In meer?</H3>
-                        <p>Schrijf je in voor de nieuwsbrief voor een kijkje achter de schermen, feitjes
-                            over Nederland,
-                            en om in aanmerking te komen voor de closed beta!</p>
+                <div class="col-md-7 text-center">
+                    <div class="NED shadowed">
+                        <H3 class="old-font mb-5">POLDER MEE!</H3>
+
+                        <b>POLDERS is goed op weg, maar we zijn er nog niet! Het blijft een cliche, maar de
+                            beste
+                            manier waarop je ons kan helpen is om POLDERS met zo veel mogelijk mensen te delen via de
+                            socials hier beneden. Je
+                            vrienden, familie, collega's, schreew het van de daken! Alleen zo kunnen we van POLDERS een
+                            compleet succes maken. Dankje alvast &lt;3</b>
+
                     </div>
-                    <div class="ENG">
-                        <H3 class="old-font">Excited for more?</H3>
-                        <p>Subscribe to the newsletter for a behind-the-scenes look, fun facts about the
-                            Netherlands,
-                            and to be eligible for the closed beta!</p>
+                    <div class="ENG shadowed">
+                        <H3 class="old-font">POLDER WITH US!</H3>
+
+                        <p>POLDERS is well on its way, but we're not there yet! It remains a cliché, but the best way
+                            you can help us is by sharing POLDERS with as many people as possible using the socials
+                            below. Your friends, family,
+                            colleagues, shout it from the rooftops! Only then can we make POLDERS a complete success!
+                            Thank you in advance &lt;3</p>
                     </div>
-                    <form action="https://sendy.geofront.nl/subscribe" method="POST" accept-charset="utf-8">
-                        <div>
-                            <input class="shadowed" type="email" name="email" id="email" placeholder="Email" />
-                            <div style="display:none;">
-                                <label for="hp">HP</label><br />
-                                <input type="text" name="hp" id="hp" />
-                            </div>
-                            <input type="hidden" name="list" value="lxFrKuHuu9v0azcczL3ruw" />
-                            <input type="hidden" name="subform" value="yes" />
-                            <br>
-                            <input class="shadowed glow" type="submit" name="submit" id="submit" value="JA GRAAG!" />
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
     </section>
     <footer class="site-footer bg-alt">
         <div class="container">
+
+
+
+            <div class="email-signup-box">
+                <div class="NED shadowed">
+                    <h4 class="old-font">Nieuwsbrief & Beta Signup</h4>
+                    <p class="mb-3">Schrijf je in voor de nieuwsbrief voor een kijkje achter de schermen, feitjes
+                        over Nederland,
+                        en om in aanmerking te komen voor de closed beta!</p>
+                </div>
+                <div class="ENG shadowed">
+                    <h4 class="old-font">Newsletter & Beta Signup</h4>
+                    <p class="mb-3">Subscribe to the newsletter for a behind-the-scenes look, fun facts about the
+                        Netherlands,
+                        and to be eligible for the closed beta!</p>
+                </div>
+                <form action="https://sendy.geofront.nl/subscribe" method="POST" accept-charset="utf-8">
+                    <div>
+                        <input class="shadowed" type="email" name="email" id="email" placeholder="Email" />
+                        <div style="display:none;">
+                            <label for="hp">HP</label><br />
+                            <input type="text" name="hp" id="hp" />
+                        </div>
+                        <input type="hidden" name="list" value="lxFrKuHuu9v0azcczL3ruw" />
+                        <input type="hidden" name="subform" value="yes" />
+                        <br>
+                        <input class="glow" type="submit" name="submit" id="submit" value="JA IK WIL POLDERMAIL!" />
+                    </div>
+                </form>
+            </div>
+
             <div class="row mb-3">
                 <div class="col-md-12 text-center">
                     <p>
-                        <a href="https://x.com/i_am_feenster" class="glow social-item"><span
-                                class="bi-twitter"></span></a>
                         <a href="https://discord.gg/rz9UBzTtKP" class="glow social-item"><span
                                 class="bi-discord"></span></a>
+                        <a href="https://x.com/i_am_feenster" class="glow social-item"><span
+                                class="bi-twitter"></span></a>
+                        <a href="https://www.youtube.com/channel/UCteUVaSdK6hX-SkLoBDl6AA"
+                            class="glow social-item"><span class="bi-youtube"></span></a>
                         <a href="https://store.steampowered.com/app/3417550/POLDERS" class="glow social-item"><span
                                 class="bi-steam"></span></a>
                         <a href="https://www.linkedin.com/in/jos-feenstra/" class="glow social-item"><span
                                 class="bi-linkedin"></span></a>
-                        <a href="https://sendy.geofront.nl/subscription?f=3J6ld6fiStIA1rKFnTSmRQ1Yx5KBDJ0CnOS626ftKEQPmPR6XwnM2W75pRDD09Th"
-                            class="glow social-item"><span class="bi-envelope"></span></a>
-                        <!-- <a href="#" class="social-item"><span class="bi-linkedin"></span></a> -->
-                        <!-- <a href="" class="social-item"><span class="bi-instagram"></span></a> -->
+                        <a href="mailto:info@geofront.nl" class="glow social-item"><span class="bi-envelope"></span></a>
                     </p>
                 </div>
             </div>
@@ -499,38 +502,10 @@
 
     <script async="" src="dependencies/js_002"></script>
     <link rel="stylesheet" href="index.css" />
+    <script src="./js/carousel.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const carouselContainers = document.querySelectorAll('.carousel-container'); // Select all carousel containers
-            if (!carouselContainers.length) return; // Exit if no carousel containers are found
-
-            carouselContainers.forEach(carouselContainer => { // Iterate over each carousel container
-                const carouselImages = carouselContainer.querySelectorAll('.carousel-image');
-                let currentImageIndex = 0;
-                const cycleTime = 5000; // 5 seconds for image display (total interval time)
-
-                if (carouselImages.length > 1) { // Only run if there's more than one image
-                    if (carouselImages[currentImageIndex]) { // Check if the first image exists
-                        carouselImages[currentImageIndex].classList.add('active'); // Show the first image
-                    }
-
-                    setInterval(() => {
-                        if (carouselImages[currentImageIndex]) {
-                            carouselImages[currentImageIndex].classList.remove('active');
-                        }
-                        currentImageIndex = (currentImageIndex + 1) % carouselImages.length;
-                        if (carouselImages[currentImageIndex]) {
-                            carouselImages[currentImageIndex].classList.add('active');
-                        }
-                    }, cycleTime);
-                } else if (carouselImages.length === 1) {
-                    if (carouselImages[0]) { // If only one image, just show it
-                        carouselImages[0].classList.add('active');
-                    }
-                }
-            });
-        });
+        /* Removed inline carousel script */
     </script>
 </body>
 
