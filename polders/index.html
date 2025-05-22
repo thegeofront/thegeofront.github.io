@@ -57,28 +57,7 @@
             /* background: rgba(0, 0, 0, 0.5); */
         }
 
-        .masked {
-            -webkit-mask-image: url('/polders/assets/img/cloud-mask.png');
-            -webkit-mask-size: 100% 100%;
-            -webkit-mask-repeat: no-repeat;
-            -webkit-mask-position: center;
 
-            mask-image: url('/polders/assets/img/cloud-mask.png');
-            mask-size: 100% 100%;
-            mask-repeat: no-repeat;
-            mask-position: center;
-        }
-
-        .m-banner {
-            -webkit-mask-size: 120% 100%;
-            mask-size: 120% 100%;
-
-        }
-
-        .m-top {
-            -webkit-mask-size: 120% 100%;
-            mask-size: 120% 100%;
-        }
 
         /* Carousel styles */
         /* Removed inline carousel styles */
@@ -202,7 +181,8 @@
             </div>
         </div>
     </section>
-    <section class="site-section masked m-top m-banner" id="section-about" style="background-color: #b8c0c5;">
+    <section class="site-section masked m-top m-banner" id="section-about"
+        style="background-color: #b8c0c5; margin-top: -110px;">
         <div class="container">
             <div class="row mb-5 align-items-center">
                 <div class="col-lg-5 pl-lg-5 shadowed">
@@ -300,9 +280,9 @@
         <div class="container">
             <div class="row mb-5 align-items-center">
                 <div class="col-lg-5 pl-lg-5 shadowed">
-                    <div class="NED">
+                    <div class="NED marginalized">
                         <div class="section-heading old-font">
-                            <h3>Uitdaging en Vrijheid</h3>
+                            <h3>Vrijheid EN Uitdaging</h3>
                         </div>
                         <p>
                             Dijkgraven op zoek naar uitdaging kunnen hun borst al nat maken! Wind, regen en
@@ -318,7 +298,7 @@
                             gehinderd worden!
                         </p>
                     </div>
-                    <div class="ENG">
+                    <div class="ENG marginalized">
                         <div class="section-heading old-font">
                             <h3>Challenge and Freedom</h3>
                         </div>
@@ -348,13 +328,13 @@
         <div class="container">
             <div class="row mb-5 align-items-center">
                 <div class="col-lg-5 pr-lg-5 mb-5 mb-lg-0">
-                    <div class="carousel-container">
+                    <div class="carousel-container masked">
                         <img width="100%" class="rounded carousel-image" src="assets/img/paintover-3.png"
-                            alt="Image placeholder" class="img-fluid" />
+                            alt="Image placeholder" class="" />
                         <img width="100%" class="rounded carousel-image" src="assets/img/passie.gif"
-                            alt="Image placeholder" class="img-fluid" />
+                            alt="Image placeholder" class="" />
                         <img width="100%" class="rounded carousel-image" src="assets/img/knotwilg.jpeg"
-                            alt="Image placeholder" class="img-fluid" />
+                            alt="Image placeholder" class="" />
                     </div>
                 </div>
                 <div class="col-lg-7 pl-lg-7 shadowed">
@@ -399,7 +379,7 @@
     <section class="site-section bg-delft my-bottom-hero masked m-banner">
         <div class="container masked">
             <div class="row justify-content-center">
-                <div class="col-md-9 text-center">
+                <div class="col-md-9 text-center marginalized">
                     <div class="NED shadowed">
                         <h1 class="old-font mb-5">POLDER MEE!</h1>
 
@@ -430,49 +410,66 @@
             <div class="row justify-content-center">
                 <div class="col-md-6 mb-4">
                     <div class="email-signup-box masked">
-                        <div class="NED shadowed">
+                        <div class="NED shadowed marginalized">
                             <h4 class="old-font">POLDERMAIL</h4>
                             <p class="mb-3">Schrijf je in voor de nieuwsbrief voor prachtige art,
                                 feitjes over Nederland, en om in aanmerking te komen voor de closed beta!</p>
+
+                            <form action="https://sendy.geofront.nl/subscribe" method="POST" accept-charset="utf-8">
+                                <div>
+                                    <input class="shadowed" type="email" name="email" id="email" placeholder="Email" />
+                                    <div style="display:none;">
+                                        <label for="hp">HP</label><br />
+                                        <input type="text" name="hp" id="hp" />
+                                    </div>
+                                    <input type="hidden" name="list" value="lxFrKuHuu9v0azcczL3ruw" />
+                                    <input type="hidden" name="subform" value="yes" />
+                                    <br>
+                                    <input class="glow" type="submit" name="submit" id="submit"
+                                        value="JA IK WIL POLDERMAIL!" />
+                                </div>
+                            </form>
                         </div>
-                        <div class="ENG shadowed">
+                        <div class="ENG shadowed marginalized">
                             <h4 class="old-font">POLDERMAIL</h4>
                             <p class="mb-3">Subscribe to the newsletter for a behind-the-scenes look, fun facts about
                                 the
                                 Netherlands,
                                 and to be eligible for the closed beta!</p>
-                        </div>
-                        <form action="https://sendy.geofront.nl/subscribe" method="POST" accept-charset="utf-8">
-                            <div>
-                                <input class="shadowed" type="email" name="email" id="email" placeholder="Email" />
-                                <div style="display:none;">
-                                    <label for="hp">HP</label><br />
-                                    <input type="text" name="hp" id="hp" />
+                            <form action="https://sendy.geofront.nl/subscribe" method="POST" accept-charset="utf-8">
+                                <div>
+                                    <input class="shadowed" type="email" name="email" id="email" placeholder="Email" />
+                                    <div style="display:none;">
+                                        <label for="hp">HP</label><br />
+                                        <input type="text" name="hp" id="hp" />
+                                    </div>
+                                    <input type="hidden" name="list" value="lxFrKuHuu9v0azcczL3ruw" />
+                                    <input type="hidden" name="subform" value="yes" />
+                                    <br>
+                                    <input class="glow" type="submit" name="submit" id="submit"
+                                        value="YES I WANT POLDERMAIL!" />
                                 </div>
-                                <input type="hidden" name="list" value="lxFrKuHuu9v0azcczL3ruw" />
-                                <input type="hidden" name="subform" value="yes" />
-                                <br>
-                                <input class="glow" type="submit" name="submit" id="submit"
-                                    value="JA IK WIL POLDERMAIL!" />
-                            </div>
-                        </form>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
                     <div class="email-signup-box masked">
-                        <div class="NED shadowed">
+                        <div class="NED shadowed marginalized">
                             <h4 class="old-font">DISCORD</h4>
                             <p class="mb-3">De community aan enthousiaste polderaars blijft groeien! Wil je met ons
                                 babbelen &
                                 een kijkje achter de schermen, join ons dan op Discord!</p>
+                            <a class="glow my-btn" href="https://discord.gg/rz9UBzTtKP">LEUK!</a>
                         </div>
-                        <div class="ENG shadowed">
+                        <div class="ENG shadowed marginalized marginalbot">
                             <h4 class="old-font">DISCORD</h4>
                             <p class="mb-3">Our community of enthusiastic polderers keeps growing! Want to chat with us
                                 & get a
                                 behind-the-scenes look? Join us on Discord!</p>
+                            <a class="glow my-btn" href="https://discord.gg/rz9UBzTtKP">LEUK!</a>
                         </div>
-                        <a class="glow my-btn" href="https://discord.gg/rz9UBzTtKP">LEUK!</a>
                     </div>
                 </div>
             </div>

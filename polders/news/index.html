@@ -85,13 +85,13 @@
         .news-entry {
             display: block;
             border-radius: 1.5em;
-            border: 3px solid #fff;
+            /* border: 3px solid #3f3f3f; */
             overflow: hidden;
             background-size: cover;
             background-position: center;
             min-height: 250px;
             position: relative;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.744);
             transition: transform 0.15s;
             text-decoration: none;
             color: inherit;
@@ -239,7 +239,7 @@
                 <div class="container">
 
 
-                    <div class="email-signup-box">
+                    <div class="email-signup-box masked">
                         <div class="NED shadowed">
                             <h4 class="old-font">POLDERMAIL</h4>
                             <p class="mb-3">Schrijf je in voor de nieuwsbrief voor prachtige art, een kijkje achter de
@@ -319,12 +319,12 @@
                         const thumbnail = entry.folder.replace(/\/$/, '') + '/thumbnail.png';
 
                         const box = document.createElement('a');
-                        box.className = 'news-entry';
+                        box.className = 'news-entry masked m-banner';
                         box.href = url;
                         box.style.backgroundImage = `url('${thumbnail}')`;
 
                         box.innerHTML = `
-                        <div class="news-entry-content">
+                        <div class="news-entry-content masked m-banner">
                             <div class="news-entry-date">${entry.date}</div>
                             <div class="news-entry-title">${entry.title}</div>
                             ${entry.subtitle ? `<div class=\"news-entry-subtitle\">${entry.subtitle}</div>` : ''}
