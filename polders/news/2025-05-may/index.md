@@ -12,4 +12,4 @@ We got a new website! We lacked a clear overview of the POLDERS project, and we 
 
 #### Presentations
 Its also apparently the season of presentations! Last month it was Everything Procedural, last week, it was Rust Week. 
-If you are interested in some technical details of POLDERS, [you can find the Rust week presentation here](https://www.youtube.com/live/84bX1nPDBr4?feature=shared&t=5627) 
+If you are interested in some technical details of POLDERS, [you can find the Rust Week presentation here](https://www.youtube.com/live/84bX1nPDBr4?feature=shared&t=5627) 

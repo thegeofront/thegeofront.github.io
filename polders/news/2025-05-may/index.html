@@ -103,7 +103,7 @@
             /* animation: fade-in 0.5s; */
             /* background-image: linear-gradient(to bottom right, #677896, #243370); */
             outline: none;
-            position: absolute;
+            position: fixed !important;
             left: 0;
             top: 0;
             width: 100vw;
@@ -111,8 +111,25 @@
             z-index: -1;
         }
 
+        .scroll-container {
+            position: relative;
+            z-index: 1;
+            /* Optional: add a background if you want some opacity or color behind content */
+            /* background: rgba(20, 20, 30, 0.85); */
+        }
+
         a {
             color: lightgoldenrodyellow
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-top: 2em;
+            font-family: 'cool';
         }
     </style>
 </head>
@@ -173,7 +190,8 @@
             <section class="site-section mb-3">
                 <div class="container">
                     <p class="mb-5"></p>
-                    <img class="mb-5" style="width: 100%; height: 10vh; object-fit: cover; object-position: center;"
+                    <img class=""
+                        style="width: 100%; height: 10em; object-fit: cover; object-position: center; border-radius: 1.5em; border: 3px solid #fff;"
                         src="thumbnail.png" alt="News thumbnail">
                     <h1 class="old-font">May Update</h1>
                     <p>Hi Folks! Jos here! </p>
@@ -185,7 +203,7 @@
 <p>We got a new website! We lacked a clear overview of the POLDERS project, and we wanted to start posting updates like this one. I probably took too long cooking it up, but I couldn't resist giving it some stylistic love :)</p>
 <h4>Presentations</h4>
 <p>Its also apparently the season of presentations! Last month it was Everything Procedural, last week, it was Rust Week. 
-If you are interested in some technical details of POLDERS, <a href="https://www.youtube.com/live/84bX1nPDBr4?feature=shared&amp;t=5627">you can find the Rust week presentation here</a> </p>
+If you are interested in some technical details of POLDERS, <a href="https://www.youtube.com/live/84bX1nPDBr4?feature=shared&amp;t=5627">you can find the Rust Week presentation here</a> </p>
                 </div>
             </section>
             <footer class="site-footer bg-alt">
