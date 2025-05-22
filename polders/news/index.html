@@ -315,7 +315,7 @@
                     const entries = data.entries;
                     const container = document.getElementById('news-entries');
                     entries.forEach(entry => {
-                        const url = entry.folder.replace(/\/$/, '') + '/index.html';
+                        const url = entry.folder.replace(/\/$/, '') + '/';
                         const thumbnail = entry.folder.replace(/\/$/, '') + '/thumbnail.png';
 
                         const box = document.createElement('a');
