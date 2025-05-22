@@ -8,7 +8,7 @@
 
     <title>POLDERS - NEWS</title>
     <link rel="icon" type="image/svg+xml" href="/polders/assets/icon.svg" />
-    <meta property="og:title" content="POLDERS - NEWS">
+    <meta property="og:title" content="POLDERS">
     <meta property="og:image" content="https://geofront.nl/polders/splash.png">
     <meta property="og:description" content="The Dutch Defiance">
     <meta property="og:url" content="https://geofront.nl">
@@ -110,6 +110,10 @@
             height: 100vh;
             z-index: -1;
         }
+
+        a {
+            color: lightgoldenrodyellow
+        }
     </style>
 </head>
 
@@ -155,7 +159,6 @@
                             <li class="mt-3 nav-item glow shadowed glow shadowed">
                                 <div class="language-selector">
                                     <select id="language-toggle">
-                                        <option value="NED" selected>🇳🇱</option>
                                         <option value="ENG">🇬🇧</option>
                                     </select>
                                 </div>
@@ -170,8 +173,19 @@
             <section class="site-section mb-3">
                 <div class="container">
                     <p class="mb-5"></p>
-                    <h3 class="old-font">News</h3>
-                    <div id="news-entries" class="row"></div>
+                    <img class="mb-5" style="width: 100%; height: 10vh; object-fit: cover; object-position: center;"
+                        src="thumbnail.png" alt="News thumbnail">
+                    <h1 class="old-font">May Update</h1>
+                    <p>Hi Folks! Jos here! </p>
+<p>I'm pleased to say that we are finally gonna give you guys some consistent updates! 🎉</p>
+<p>May has been a funky whirlwind of context-switching between revamping POLDERS' core gameplay loop, giving presentations about our progress, and diving deep into the rabbit hole of web development. And you know what? I'm having an absolute blast! There's something oddly satisfying about juggling these completely different tasks - one moment I'm knee-deep in game systems code, the next I'm fiddling with CSS animations (and questioning my life choices), and then suddenly I'm in front of people trying to explain why flooding the Netherlands in a video game is actually a good thing. It's chaotic, it's varied, and it's exactly the kind of creative chaos I thrive in!</p>
+<h4>New Video</h4>
+<p>We added a new video to showcase some pre-alpha gameplay! Dani made it, and bless her, its so much better than my previous attempt ^^'. <a href="https://www.youtube.com/watch?v=AzYt_z4o8ro">You can watch it here</a>. </p>
+<h4>Website overhaul!</h4>
+<p>We got a new website! We lacked a clear overview of the POLDERS project, and we wanted to start posting updates like this one. I probably took too long cooking it up, but I couldn't resist giving it some stylistic love :)</p>
+<h4>Presentations</h4>
+<p>Its also apparently the season of presentations! Last month it was Everything Procedural, last week, it was Rust Week. 
+If you are interested in some technical details of POLDERS, <a href="https://www.youtube.com/live/84bX1nPDBr4?feature=shared&amp;t=5627">you can find the Rust week presentation here</a> </p>
                 </div>
             </section>
             <footer class="site-footer bg-alt">
@@ -213,35 +227,6 @@
             </footer>
         </div>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch('/polders/news/entries.json')
-                .then(response => response.json())
-                .then(data => {
-                    const entries = data.entries;
-                    const container = document.getElementById('news-entries');
-                    entries.forEach(entry => {
-                        const url = entry.folder.replace(/\/$/, '') + '/index.html';
-                        const thumbnail = entry.folder.replace(/\/$/, '') + '/thumbnail.png';
-
-                        const box = document.createElement('a');
-                        box.className = 'news-entry col-md-4 mb-4';
-                        box.href = url;
-                        box.style.backgroundImage = `url('${thumbnail}')`;
-
-                        box.innerHTML = `
-                        <div class="news-entry-content">
-                            <div class="news-entry-date">${entry.date}</div>
-                            <div class="news-entry-title">${entry.title}</div>
-                            ${entry.subtitle ? `<div class=\"news-entry-subtitle\">${entry.subtitle}</div>` : ''}
-                        </div>
-                    `;
-                        container.appendChild(box);
-                    });
-                });
-        });
-    </script>
 </body>
 
 </html>

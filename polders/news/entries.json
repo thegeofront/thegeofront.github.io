@@ -1,12 +1,16 @@
 {
     "entries": [
         {
-            "date": "22-05-2025",
+            "date": "2025-05-21",
+            "title": "Hello, World!",
+            "subtitle": "",
+            "folder": "./2025-05-hello/"
+        },
+        {
+            "date": "2025-05-22",
             "title": "May Update",
             "subtitle": "Presentations, Art, Video's, and much more!",
-            "source": "./2025-may/index.html",
-            "page": "./2025-may/index.html",
-            "thumbnail": "./2025-may/gezichtopdelft.png"
+            "folder": "./2025-05-may/"
         }
     ]
 }

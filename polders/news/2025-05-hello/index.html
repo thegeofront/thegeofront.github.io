@@ -8,7 +8,7 @@
 
     <title>POLDERS - NEWS</title>
     <link rel="icon" type="image/svg+xml" href="/polders/assets/icon.svg" />
-    <meta property="og:title" content="POLDERS - NEWS">
+    <meta property="og:title" content="POLDERS">
     <meta property="og:image" content="https://geofront.nl/polders/splash.png">
     <meta property="og:description" content="The Dutch Defiance">
     <meta property="og:url" content="https://geofront.nl">
@@ -110,6 +110,10 @@
             height: 100vh;
             z-index: -1;
         }
+
+        a {
+            color: lightgoldenrodyellow
+        }
     </style>
 </head>
 
@@ -155,7 +159,6 @@
                             <li class="mt-3 nav-item glow shadowed glow shadowed">
                                 <div class="language-selector">
                                     <select id="language-toggle">
-                                        <option value="NED" selected>🇳🇱</option>
                                         <option value="ENG">🇬🇧</option>
                                     </select>
                                 </div>
@@ -170,8 +173,10 @@
             <section class="site-section mb-3">
                 <div class="container">
                     <p class="mb-5"></p>
-                    <h3 class="old-font">News</h3>
-                    <div id="news-entries" class="row"></div>
+                    <img class="mb-5" style="width: 100%; height: 10vh; object-fit: cover; object-position: center;"
+                        src="thumbnail.png" alt="News thumbnail">
+                    <h1 class="old-font">Hello, World!</h1>
+                    <p>Hello, World!</p>
                 </div>
             </section>
             <footer class="site-footer bg-alt">
@@ -213,35 +218,6 @@
             </footer>
         </div>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch('/polders/news/entries.json')
-                .then(response => response.json())
-                .then(data => {
-                    const entries = data.entries;
-                    const container = document.getElementById('news-entries');
-                    entries.forEach(entry => {
-                        const url = entry.folder.replace(/\/$/, '') + '/index.html';
-                        const thumbnail = entry.folder.replace(/\/$/, '') + '/thumbnail.png';
-
-                        const box = document.createElement('a');
-                        box.className = 'news-entry col-md-4 mb-4';
-                        box.href = url;
-                        box.style.backgroundImage = `url('${thumbnail}')`;
-
-                        box.innerHTML = `
-                        <div class="news-entry-content">
-                            <div class="news-entry-date">${entry.date}</div>
-                            <div class="news-entry-title">${entry.title}</div>
-                            ${entry.subtitle ? `<div class=\"news-entry-subtitle\">${entry.subtitle}</div>` : ''}
-                        </div>
-                    `;
-                        container.appendChild(box);
-                    });
-                });
-        });
-    </script>
 </body>
 
 </html>
