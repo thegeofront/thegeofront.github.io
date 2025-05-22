@@ -202,7 +202,8 @@ input[type="email"] {
     width: 30vh;
 }
 
-input[type="submit"] {
+input[type="submit"],
+.my-btn {
     background-color: transparent;
     border-color: transparent;
 
@@ -211,9 +212,21 @@ input[type="submit"] {
     text-decoration: none;
     color: white;
 
+    font-size: 1em;
+    padding: 7px 18px;
+    border-radius: 6px;
+    margin-top: 8px;
+    background: #b8c0c5;
+    color: #222;
+    font-family: 'cool';
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.10);
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+.my-btn:hover {
+    background: #a0aab2;
     color: #fff;
 }
 
@@ -321,22 +334,4 @@ input:focus {
     margin-bottom: 16px;
     font-size: 1.1em;
     padding: 8px 12px;
-}
-
-.email-signup-box input[type="submit"] {
-    font-size: 1em;
-    padding: 7px 18px;
-    border-radius: 6px;
-    margin-top: 8px;
-    background: #b8c0c5;
-    color: #222;
-    font-family: 'cool';
-    font-weight: bold;
-    letter-spacing: 1px;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.10);
-}
-
-.email-signup-box input[type="submit"]:hover {
-    background: #a0aab2;
-    color: #fff;
 }
