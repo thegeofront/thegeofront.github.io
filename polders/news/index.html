@@ -232,7 +232,12 @@
                 <div class="container">
                     <p class="mb-5"></p>
                     <h1 class="old-font">News</h1>
-                    <div id="news-entries"></div>
+                    <div class="NED">
+                        <div id="news-entries-ned"></div>
+                    </div>
+                    <div class="ENG">
+                        <div id="news-entries-eng"></div>
+                    </div>
                 </div>
             </section>
             <footer class="site-footer bg-alt">
@@ -313,27 +318,42 @@
                 .then(response => response.json())
                 .then(data => {
                     const entries = data.entries;
-                    const container = document.getElementById('news-entries');
-                    entries.forEach(entry => {
-                        const url = entry.folder.replace(/\/$/, '') + '/';
-                        const thumbnail = entry.folder.replace(/\/$/, '') + '/thumbnail.png';
-
-                        const box = document.createElement('a');
-                        box.className = 'news-entry masked m-banner';
-                        box.href = url;
-                        box.style.backgroundImage = `url('${thumbnail}')`;
-
-                        box.innerHTML = `
-                        <div class="news-entry-content masked m-banner">
-                            <div class="news-entry-date">${entry.date}</div>
-                            <div class="news-entry-title">${entry.title}</div>
-                            ${entry.subtitle ? `<div class=\"news-entry-subtitle\">${entry.subtitle}</div>` : ''}
-                        </div>
-                    `;
-                        container.appendChild(box);
-                    });
+                    fillNewsEntries(entries, 'news-entries-ned', 'NED');
+                    fillNewsEntries(entries, 'news-entries-eng', 'ENG');
                 });
         });
+
+        function fillNewsEntries(entries, containerId, lang) {
+            const container = document.getElementById(containerId);
+            entries.forEach(entry => {
+                const url = entry.folder.replace(/\/$/, '') + '/';
+                const thumbnail = entry.folder.replace(/\/$/, '') + '/thumbnail.png';
+
+                const box = document.createElement('a');
+                box.className = 'news-entry masked m-banner';
+                box.href = url;
+                box.style.backgroundImage = `url('${thumbnail}')`;
+
+
+                let title, subtitle;
+                if (lang === 'NED') {
+                    title = entry.title_ned;
+                    subtitle = entry.subtitle_ned;
+                } else {
+                    title = entry.title;
+                    subtitle = entry.subtitle;
+                }
+
+                box.innerHTML = `
+                        <div class="news-entry-content masked m-banner">
+                            <div class="news-entry-date">${entry.date}</div>
+                            <div class="news-entry-title">${title}</div>
+                            ${subtitle ? `<div class=\"news-entry-subtitle\">${subtitle}</div>` : ''}
+                        </div>
+                    `;
+                container.appendChild(box);
+            });
+        }
     </script>
 </body>
 
