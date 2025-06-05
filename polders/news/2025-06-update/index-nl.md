@@ -1,8 +1,8 @@
 Hoi! Jos hier!
 
-Ik ben blij om te kunnen zeggen dat we jullie eindelijk wat consistente updates gaan geven! 🎉
+Ik ben blij om te kunnen zeggen dat we eindelijk wat consistente updates kunnen gaan geven! 🎉
 
-Mei is een gekke wervelwind geweest van heen en weer springen tussen het vernieuwen van POLDERS z'n core gameplay loop, presentaties geven over onze voortgang, en diep duiken in het rabbithole van webdevelopment. En weet je wat? Ik heb er enorm veel plezier in! Er is iets vreemd bevredigends aan het jongleren van compleet verschillende taken - het ene moment zit ik tot over mijn oren in game systems code, het volgende moment zit ik te klooien met CSS animaties (en vraag ik me af wat ik met mijn leven doe), en dan opeens sta ik voor mensen uit te leggen waarom Nederland onder water zetten in een videogame eigenlijk een goed idee is. Het is wild, het is gevarieerd, en het is precies het soort creatieve chaos waar ik van houd!
+De afgelopen maand was een gekke wervelwind van het vernieuwen van POLDERS z'n core gameplay loop, tot presentaties geven over onze voortgang, en een deep-dive in het rabbithole van webdevelopment. En weet je wat? Ik heb er enorm veel plezier in! Er is iets vreemd bevredigends aan het jongleren van compleet verschillende taken - het ene moment zit ik tot over mijn oren in game systems code, het volgende moment zit ik te klooien met CSS animaties (en vraag ik me af wat ik met mijn leven doe), en dan opeens sta ik voor mensen uit te leggen waarom Nederland onder water zetten in een videogame eigenlijk een goed idee is. Het is wild, het is gevarieerd, en het is precies het soort creatieve chaos waar ik van houd!
 
 #### Nieuwe Video
 We hebben een nieuwe video toegevoegd om wat pre-alpha gameplay te laten zien! Dani heeft hem gemaakt, en god zegene haar, hij is zoveel beter dan mijn vorige poging ^^'. [Je kunt hem hier bekijken](https://www.youtube.com/watch?v=AzYt_z4o8ro).
