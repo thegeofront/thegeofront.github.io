@@ -3,12 +3,15 @@
         {
             "date": "2025-06-05",
             "title": "June Update",
-            "subtitle": "Presentations, Art, Video's, and much more!",
+            "title_ned": "Juni Update",
+            "subtitle": "Presentations, Video's, and much more!",
+            "subtitle_ned": "Presentaties, Video's, en meer!",
             "folder": "./2025-06-update/"
         },
         {
             "date": "2025-05-21",
             "title": "Hello, World!",
+            "title_ned": "Hallo, wereld!",
             "subtitle": "",
             "folder": "./2025-05-hello/"
         }

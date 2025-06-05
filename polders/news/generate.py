@@ -3,16 +3,20 @@ import markdown
 from jinja2 import Template
 
 
-def generate_news_entry(folder, title, subtitle, date):
+def generate_news_entry(folder, title, title_ned, subtitle, date, lang="en"):
     dir_path = folder.rstrip("/")
+    
     with open(f"{dir_path}/index.md") as f:
         md_content = f.read()
-    html_body = markdown.markdown(md_content)
+    html_body_eng = markdown.markdown(md_content)
+    with open(f"{dir_path}/index-nl.md") as f:
+        md_content = f.read()
+    html_body_ned = markdown.markdown(md_content)
 
     with open("./templates/template.html") as f:
         template = Template(f.read())
 
-    rendered = template.render(title=title, subtitle=subtitle, body=html_body, date=date)
+    rendered = template.render(title_eng=title, body_eng=html_body_eng, title_ned=title_ned, body_ned=html_body_ned, date=date)
 
     with open(f"{dir_path}/index.html", "w") as f:
         f.write(rendered)
@@ -25,8 +29,9 @@ def main():
         generate_news_entry(
             folder=entry["folder"],
             title=entry["title"],
+            title_ned=entry["title_ned"],
             subtitle=entry.get("subtitle", ""),
-            date=entry.get("date", "")
+            date=entry.get("date", ""),
         )
 
 if __name__ == "__main__":
