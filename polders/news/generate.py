@@ -1,3 +1,6 @@
+#! /usr/bin/env python3
+# to use: python3 generate.py in the news/ folder. this will generate the html files for the news entries.
+
 import json
 import markdown
 from jinja2 import Template

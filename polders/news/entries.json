@@ -1,6 +1,14 @@
 {
     "entries": [
         {
+            "date": "2025-07-14",
+            "title": "July Update",
+            "title_ned": "Juli Update",
+            "subtitle": "Poldervlog, Villagers & Shaders",
+            "subtitle_ned": "Poldervlog, Villagers & Shaders",
+            "folder": "./2025-07-update/"
+        },
+        {
             "date": "2025-06-05",
             "title": "June Update",
             "title_ned": "Juni Update",
