@@ -19,7 +19,7 @@
     <style>
         :root {
             --ink: #ffffff;
-            --highlight: rgb(220, 215, 187);
+            --highlight: rgb(220, 188, 187);
             --highlight-dim: rgba(220, 215, 187, 0.45);
             --font-display: 'cool';
             --font-body: 'Montserrat', sans-serif;
@@ -60,7 +60,6 @@
             overflow: hidden;
         }
 
-        /* Layer 1: the looping video (currently hidden; remove display:none to bring it back) */
         .hero video {
             position: absolute;
             inset: 0;
@@ -70,7 +69,6 @@
             display: none;
         }
 
-        /* Layer 2: the polders painting, laid over the video */
         .hero .overlay-image {
             position: absolute;
             inset: 0;
@@ -79,17 +77,22 @@
             background-position: center;
             background-repeat: no-repeat;
             opacity: 0.75;
-            /* tune this to let more or less of the video show through */
         }
 
-        /* Layer 3: darkening filter so the text stays readable */
         .hero .overlay-dark {
             position: absolute;
             inset: 0;
             background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6));
         }
 
-        /* Layer 4: content */
+        .hero canvas.clouds {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
         .hero .content {
             position: absolute;
             inset: 0;
@@ -123,18 +126,20 @@
             color: var(--ink);
         }
 
-        /* letter-spacing is set by script so it spans exactly the width of the h1 */
         .hero .subtitle {
             display: block;
             font-family: var(--font-body);
             font-weight: 1000;
             font-size: min(2.5vh, 3.5vw);
-            line-height: 1;
-            text-align: left;
+            font-width: 10px;
+            line-height: 0.5;
+            letter-spacing: 6px;
             white-space: nowrap;
             text-transform: uppercase;
             color: var(--highlight);
             margin: 0;
+            transform: scaleY(0.9);
+            transform-origin: top center;
         }
 
         .hero .links {
@@ -209,6 +214,7 @@
         </video>
         <div class="overlay-image"></div>
         <div class="overlay-dark"></div>
+        <canvas class="clouds"></canvas>
 
         <div class="content">
             <img class="logo" src="assets/icon.svg" alt="">
@@ -237,29 +243,15 @@
                 Geofront B.V.
             </p>
             <div class="smallprint">
-                <a href="https://drive.google.com/drive/folders/1HwGBLcsQ7jicy_8bDgiBvlIpRxscI8va?usp=sharing">Presskit</a><span class="sep">·</span><a href="/polders/privacy/privacy.html">Privacy Policy</a><span class="sep">·</span><a href="/polders/troubleshooting/troubleshooting.html">Troubleshooting</a>
+                <a
+                    href="https://drive.google.com/drive/folders/1HwGBLcsQ7jicy_8bDgiBvlIpRxscI8va?usp=sharing">Presskit</a><span
+                    class="sep">·</span><a href="/polders/privacy/privacy.html">Privacy Policy</a><span
+                    class="sep">·</span><a href="/polders/troubleshooting/troubleshooting.html">Troubleshooting</a>
             </div>
         </footer>
 
-        <script>
-            // Stretch the subtitle's letter-spacing so its visible text is exactly as wide as the title.
-            (function () {
-                const title = document.querySelector('.hero h1');
-                const sub = document.querySelector('.hero .subtitle');
-                function fit() {
-                    sub.style.letterSpacing = '0px';
-                    const target = title.getBoundingClientRect().width;
-                    const range = document.createRange();
-                    range.selectNodeContents(sub);
-                    const natural = range.getBoundingClientRect().width;
-                    const gaps = sub.textContent.length - 1;
-                    sub.style.letterSpacing = Math.max(0, (target - natural) / gaps) + 'px';
-                }
-                fit();
-                window.addEventListener('resize', fit);
-                if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
-            })();
-        </script>
+        <script src="./js/clouds.js"></script>
+        <script src="./js/parallax.js"></script>
     </section>
 </body>
 
