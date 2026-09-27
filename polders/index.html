@@ -2,501 +2,265 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>POLDERS</title>
     <link rel="icon" type="image/svg+xml" href="./assets/icon.svg" />
     <meta property="og:title" content="POLDERS">
     <meta property="og:image" content="https://geofront.nl/polders/splash.png">
-    <!-- <meta property="og:description" content="The Dutch Defiance"> -->
     <meta property="og:description"
         content="Build windmills, dikes, and sluices to keep your feet dry, and expand your settlement from shabby hamlet to a bussling trading city!">
     <meta property="og:url" content="https://geofront.nl">
 
-    <link rel="stylesheet" href="css/index.css" />
-
-    <!-- Bootstrappy stuff -->
-    <link rel="stylesheet" href="dependencies/animate.css" />
-    <link rel="stylesheet" href="dependencies/flexslider.css" />
-    <link rel="stylesheet" href="dependencies/style_002.css" />
-    <link rel="stylesheet" href="dependencies/bootstrap.css" />
-    <link rel="stylesheet" href="dependencies/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link href="dependencies/css.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/fa.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/carousel.css">
 
     <style>
-        .my-hero video {
+        :root {
+            --ink: #ffffff;
+            --highlight: rgb(220, 215, 187);
+            --highlight-dim: rgba(220, 215, 187, 0.45);
+            --font-display: 'cool';
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        ::selection {
+            background: var(--highlight);
+            color: #1c1a14;
+        }
+
+        .glow {
+            display: inline-block;
+            transition: transform 0.1s ease-out;
+        }
+
+        .glow:hover {
+            transform: scale(1.05) rotate(0.01turn);
+        }
+
+        .shadowed {
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: #000;
+            color: var(--ink);
+            font-family: var(--font-body);
+            overflow: hidden;
+        }
+
+        .hero {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        /* Layer 1: the looping video (currently hidden; remove display:none to bring it back) */
+        .hero video {
             position: absolute;
-            top: 50%;
-            left: 50%;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Ensures the video covers the section without distortion */
-            transform: translate(-50%, -50%);
-            /* z-index: -1; */
-            /* Sends the video behind the content */
+            display: none;
         }
 
-        .my-hero .container {
-            position: relative;
-            z-index: 1;
-            /* Brings content above the video */
-            color: white;
+        /* Layer 2: the polders painting, laid over the video */
+        .hero .overlay-image {
+            position: absolute;
+            inset: 0;
+            background-image: url("./polders-background.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.75;
+            /* tune this to let more or less of the video show through */
+        }
+
+        /* Layer 3: darkening filter so the text stays readable */
+        .hero .overlay-dark {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6));
+        }
+
+        /* Layer 4: content */
+        .hero .content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            top: 0px;
-            padding: 20px;
-            /* Optional: Semi-transparent background for readability */
-            /* background: rgba(0, 0, 0, 0.5); */
+            padding: 0 16px;
+            box-sizing: border-box;
+        }
+
+        .hero .logo {
+            height: 26vh;
+            max-height: 240px;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+        }
+
+        .hero .title {
+            display: inline-block;
+            margin-bottom: 8vh;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-weight: normal;
+            font-size: min(14vh, 17vw);
+            line-height: 1;
+            margin: 0 0 -0.08em 0;
+            letter-spacing: 2px;
+            color: var(--ink);
+        }
+
+        /* letter-spacing is set by script so it spans exactly the width of the h1 */
+        .hero .subtitle {
+            display: block;
+            font-family: var(--font-body);
+            font-weight: 1000;
+            font-size: min(2.5vh, 3.5vw);
+            line-height: 1;
+            text-align: left;
+            white-space: nowrap;
+            text-transform: uppercase;
+            color: var(--highlight);
+            margin: 0;
+        }
+
+        .hero .links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5vh;
+            align-items: center;
+        }
+
+        .hero .links a {
+            font-family: var(--font-display);
+            font-size: min(3.5vh, 5.5vw);
+            color: var(--ink);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .hero .links a:hover {
+            color: var(--highlight);
+        }
+
+        .hero .links .fab {
+            margin: 0 0.4em;
+        }
+
+        .hero .footer {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 2vh;
+            text-align: center;
+            font-size: 0.85em;
+        }
+
+        .hero .footer .copyright {
+            margin: 0 0 0.5em 0;
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 0.8em;
+            letter-spacing: 0.06em;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .hero .footer .smallprint {
+            font-family: var(--font-display);
+            font-size: 0.7em;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .hero .footer .smallprint a {
+            color: var(--highlight);
+            text-decoration: none;
+            padding: 0 0.6em;
+            transition: color 0.15s ease-out;
+        }
+
+        .hero .footer .smallprint a:hover {
+            color: var(--ink);
+        }
+
+        .hero .footer .smallprint .sep {
+            color: var(--highlight-dim);
         }
     </style>
-
-    <script defer="defer" referrerpolicy="origin" src="dependencies/s.js"></script>
-    <script type="text/javascript" charset="UTF-8" src="dependencies/common.js"
-        nonce="773082f7-f609-47ae-a06b-11ca6dfe9c5f"></script>
-    <script type="text/javascript" charset="UTF-8" src="dependencies/util.js"
-        nonce="773082f7-f609-47ae-a06b-11ca6dfe9c5f"></script>
-    <script src="js/language-toggle.js"></script>
 </head>
 
-
-<body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
-    <nav class="navbar my-navbar-expand site-navbar navbar-light bg-alt sleep" id="pb-navbar">
-        <div class="container">
-            <button class="navbar-toggler collapsed glow shadowed" type="button" data-toggle="collapse"
-                data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="navbar-collapse justify-content-md-center collapse" id="navbarsExample09">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <br>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/polders"><img src="/polders/assets/icon.svg" class="logo shadowed"
-                                style="width: 30px;" alt="Geofront Logo" /></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active glow shadowed" href="#section-home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link glow shadowed" href="#section-contact">Contact</a>
-                    </li>
-                    <div class="language-selector">
-                        <select id="language-toggle">
-                            <option value="NED" selected>🇳🇱</option>
-                            <option value="ENG">🇬🇧</option>
-                        </select>
-                    </div>
-                </ul>
-            </div>
-
-        </div>
-    </nav>
-
-
-
-    <section class="site-hero my-hero" style="background-image: url(assets/main/dani-one.png); position: relative;"
-        id="section-home">
-
+<body>
+    <section class="hero">
         <video autoplay loop muted playsinline>
             <source src="/polders/assets/gifs/bal.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
+        <div class="overlay-image"></div>
+        <div class="overlay-dark"></div>
 
-        <div class="container">
-            <div class="row intro-text align-items-center justify-content-center">
-                <div class="col-md-10 text-center">
+        <div class="content">
+            <img class="logo" src="assets/icon.svg" alt="">
+            <div class="title shadowed">
+                <h1>POLDERS</h1>
+                <p class="subtitle">A Dutch City Builder</p>
+            </div>
 
-                    <div class="column">
-                        <img src="assets/icon.svg"
-                            style="height: 30vh; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));">
-                    </div>
-                    <!-- <img src="assets/icons/title-big.png" style="height: 10vh"> -->
-                    <h1 class="old-font shadowed" style="font-size: 14vh; margin: 0px; letter-spacing: 2px;">POLDERS
-                    </h1>
-
-                    <div style="margin-bottom: 1vh;">
-                        <a class="glow old-font shadowed" aria-disabled=""
-                            href="https://store.steampowered.com/app/3417550/POLDERS">
-                            <span class="shadowed fab fa-steam"></span>
-                            WISHLIST ON STEAM
-                            <span class="shadowed fab fa-steam"></span>
-                        </a>
-                    </div>
-
-                    <div>
-                        <div style="margin-bottom: 1vh;">
-                            <a class="glow old-font shadowed" href="https://discord.gg/rz9UBzTtKP">
-                                <span class="shadowed fab fa-discord"></span>
-                                JOIN OUR DISCORD
-                                <span class="shadowed fab fa-discord"></span>
-                            </a>
-                        </div>
-                    </div>
-
-
-
-                    <!-- <img src="assets/divider.png"
-                    style="height: 2vh; transform: translate(10px) rotate(180deg); filter: brightness(90%)">
-                <img src="assets/divider.png"
-                    style="height: 2vh; transform: translate(-10px); filter: brightness(90%)">
-                 -->
-
-                    <a href="#section-about" class="smoothscroll btn btn-primary glow shadowed"
-                        style="background-color: rgb(0, 0, 0, 0); border: white">
-                        <span>
-                            <span>      <img src=" assets/icons/arrow-down.svg" alt="">      </span>
-                        </span>
-
-                    </a>
-                </div>
+            <div class="links">
+                <a class="glow shadowed" href="https://store.steampowered.com/app/3417550/POLDERS">
+                    <span class="fab fa-steam"></span>WISHLIST ON STEAM<span class="fab fa-steam"></span>
+                </a>
+                <a class="glow shadowed" href="https://discord.gg/rz9UBzTtKP">
+                    <span class="fab fa-discord"></span>JOIN OUR DISCORD<span class="fab fa-discord"></span>
+                </a>
+                <a class="glow shadowed" href="https://linktr.ee/POLDERS">
+                    &#9776;&nbsp; FOLLOW US &nbsp;&#9776;
+                </a>
             </div>
         </div>
+
+        <footer class="footer shadowed">
+            <p class="copyright">
+                Copyright ©
+                <script>document.write(new Date().getFullYear());</script>
+                Geofront B.V.
+            </p>
+            <div class="smallprint">
+                <a href="https://drive.google.com/drive/folders/1HwGBLcsQ7jicy_8bDgiBvlIpRxscI8va?usp=sharing">Presskit</a><span class="sep">·</span><a href="/polders/privacy/privacy.html">Privacy Policy</a><span class="sep">·</span><a href="/polders/troubleshooting/troubleshooting.html">Troubleshooting</a>
+            </div>
+        </footer>
+
+        <script>
+            // Stretch the subtitle's letter-spacing so its visible text is exactly as wide as the title.
+            (function () {
+                const title = document.querySelector('.hero h1');
+                const sub = document.querySelector('.hero .subtitle');
+                function fit() {
+                    sub.style.letterSpacing = '0px';
+                    const target = title.getBoundingClientRect().width;
+                    const range = document.createRange();
+                    range.selectNodeContents(sub);
+                    const natural = range.getBoundingClientRect().width;
+                    const gaps = sub.textContent.length - 1;
+                    sub.style.letterSpacing = Math.max(0, (target - natural) / gaps) + 'px';
+                }
+                fit();
+                window.addEventListener('resize', fit);
+                if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+            })();
+        </script>
     </section>
-    <section class="site-section masked m-top m-banner" id="section-about"
-        style="background-color: #b8c0c5; margin-top: -110px;">
-        <div class="container">
-            <div class="row mb-5 align-items-center">
-                <div class="col-lg-5 pl-lg-5 shadowed">
-                    <div class="NED">
-                        <div class="section-heading old-font">
-                            <h3>Het water zal nooit meer over ons heersen...</h3>
-                        </div>
-                        <p>
-                            POLDERS is een minimalistische sandbox city builder, met inspiratie uit Townscaper, Terra
-                            Nil, Animal Crossing, en Minecraft.
-                            In POLDERS bouw je dijken, molens en sloten, en breid je je kleine gehucht uit tot een
-                            trotse, 17e eeuwse handelsstad!
-                        </p>
-                    </div>
-                    <div class="ENG">
-                        <div class="section-heading old-font">
-                            <h3>The water will never rule us again...</h3>
-                        </div>
-                        <p>
-                            POLDERS is a minimalist sandbox city builder, with inspiration from Townscaper, Terra
-                            Nil, Animal Crossing, and Minecraft.
-                            In POLDERS you build dikes, windmills and sluices, and expand your small hamlet into a
-                            proud, 17th-century trading city!
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-7 pr-lg-7 mb-7 mb-lg-0">
-                    <img width="100%" src="assets/img/new/3.png" alt="Image placeholder"
-                        class="rounded img-fluid masked" />
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="site-section" id="section-gameplay">
-        <div class="container">
-            <div class="row mb-5 align-items-center">
-                <div class="col-lg-7 pr-lg-7 mb-7 mb-lg-0">
-
-                    <div class="carousel-container masked">
-                        <img width="100%" src="assets/img/new/2.png" alt="Image placeholder"
-                            class="rounded img-fluid carousel-image" />
-                        <img width="100%" src="assets/img/new/1.png" alt="Image placeholder"
-                            class="rounded img-fluid carousel-image" />
-                        <img width="100%" src="assets/img/new/4.png" alt="Image placeholder"
-                            class="rounded img-fluid carousel-image" />
-                    </div>
-
-
-                </div>
-                <div class="col-lg-5 pl-lg-5 shadowed">
-                    <div class="NED">
-                        <div class="section-heading old-font">
-                            <h3>van en voor cultuur</h3>
-                        </div>
-                        <p>
-                            In POLDERS herbeleef je oprecht de geschiedenis, van polderen voor landbouwgrond tot wilgen
-                            knotten & de aanleg van sluizen. Elk gebouw in de game is gebaseerd op een bestaand
-                            (rijks)monument of schilderij (Vermeer, Van Ruisdael, Pieck), en de zee zal meedogenloos
-                            toeslaan
-                            daar waar je vergeet de dijken te controleren!
-                        </p>
-                    </div>
-                    <div class="ENG">
-                        <div class="section-heading old-font">
-                            <h3>A GAME OF CULTURE</h3>
-                        </div>
-                        <p>
-                            In POLDERS you genuinely relive Dutch history, from poldering for agricultural land to
-                            pruning willows & the construction of sluices. Every building in the game is based on an
-                            existing
-                            monument you can visit, or painting you can see in a museum (Vermeer, Van Ruisdael, Pieck).
-                            And be warned: The sea will strike
-                            mercilessly
-                            where you forget to check the dikes!
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="site-section bg-paintover-top masked m-banner" id="section-challenge"
-        style="background-color: #b8c0c5;">
-        <div class="container">
-            <div class="row mb-5 align-items-center">
-                <div class="col-lg-5 pl-lg-5 shadowed">
-                    <div class="NED marginalized">
-                        <div class="section-heading old-font">
-                            <h3>Een city builder als geen ander</h3>
-                        </div>
-                        <p>
-                            POLDERS is uniek als
-                            city builder, in dat je fysiek door de wereld loopt, en de
-                            gehele wereld door jou aanpasbaar is door het combineren van blokjes tot de juiste gebouwen.
-                            POLDERS bevat genoeg strategie voor de ervaren gamer, en alle vrijheid in de wereld voor de
-                            creatieve casual!
-                        </p>
-                    </div>
-                    <div class="ENG marginalized">
-                        <div class="section-heading old-font">
-                            <h3>A city builder like no other</h3>
-                        </div>
-                        <p>
-                            POLDERS is unique as
-                            a city builder, in that you physically walk through the world, and the
-                            entire world is adaptable by you by combining blocks into the correct buildings.
-                            POLDERS contains enough strategy for the experienced gamer, and all the freedom in the world
-                            for the
-                            creative casual!
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-7 pr-lg-7 mb-5 mb-lg-0">
-                    <img width="100%" src="assets/img/screenshot-4.jpg" alt="Image placeholder"
-                        class="rounded img-fluid masked" />
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="site-section bg-alt" id="section-contact">
-        <div class="container">
-            <div class="row mb-5 align-items-center">
-                <div class="col-lg-5 pr-lg-5 mb-5 mb-lg-0">
-                    <div class="carousel-container masked">
-                        <img width="100%" class="rounded carousel-image" src="assets/img/paintover-3.png"
-                            alt="Image placeholder" class="" />
-                        <img width="100%" class="rounded carousel-image" src="assets/img/passie.gif"
-                            alt="Image placeholder" class="" />
-                        <img width="100%" class="rounded carousel-image" src="assets/img/new/overleg.jpeg"
-                            alt="Image placeholder" class="" />
-                    </div>
-                </div>
-                <div class="col-lg-7 pl-lg-7 shadowed">
-                    <div class="NED">
-                        <div class="section-heading old-font">
-                            <h3>100% Passie</h3>
-                        </div>
-                        <p>
-                            POLDERS komt recht uit ons hart en onze roots. We hebben onze banen ervoor opgegeven, en we
-                            bijten dag in dag uit door het stof om deze droom werkelijkheid te maken.
-                        </p>
-                        <p>
-                            POLDERS is gegrond in de plek waar het gemaakt wordt: Delft & Nederland.
-                            We hebben uitbundig gesproken met molenaars, boeren, en cultuurinstanties, over wat deze
-                            roots voor hun betekenen.
-                            Samen willen we van POLDERS een cultuurhistorische beleving maken, die spelers
-                            verbindt met het verleden en heden van het landschap dat we ons thuis noemen.
-                        </p>
-                    </div>
-                    <div class="ENG">
-                        <div class="section-heading old-font">
-                            <h3>Labor of Love</h3>
-                        </div>
-                        <p>
-                            POLDERS comes straight out of our hearts & our roots.
-                            We have given up our jobs, and are now grinding day by day to make this dream a reality!
-                            It is grounded within the soil of where it was made: Delft & The Netherlands as a whole.
-                            We have spoken extensively with farmers, millers, and museums.
-                        </p>
-                        <p>
-                            In these ways, we want to make POLDERS a cultural-historical experience, connecting players
-                            with the past and present of the landscape the Dutch call home.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <section class="site-section bg-delft my-bottom-hero masked m-banner">
-        <div class="container masked">
-            <div class="row justify-content-center">
-                <div class="col-md-9 text-center marginalized">
-                    <div class="NED shadowed">
-                        <h1 class="old-font mb-5">POLDER MEE!</h1>
-
-                        <b>POLDERS is goed op weg, maar we zijn er nog niet! Het blijft een cliche, maar de
-                            beste
-                            manier waarop je ons kan helpen is om POLDERS met zo veel mogelijk mensen te delen via de
-                            socials hier beneden. Je
-                            vrienden, familie, collega's, schreew het van de daken! Alleen zo kunnen we van POLDERS een
-                            compleet succes maken. Bedankt alvast &lt;3</b>
-
-                    </div>
-                    <div class="ENG shadowed">
-                        <h1 class="old-font mb-5">POLDER WITH US!</h1>
-
-                        <p>POLDERS is well on its way, but we're not there yet! It remains a cliché, but the best way
-                            you can help us is by sharing POLDERS with as many people as possible using the socials
-                            below. Your friends, family,
-                            colleagues, shout it from the rooftops! Only then can we make POLDERS a complete success!
-                            Thank you in advance &lt;3</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer class="site-footer bg-alt">
-        <div class="container">
-
-            <div class="row justify-content-center">
-                <div class="col-md-6 mb-4">
-                    <div class="email-signup-box masked">
-                        <div class="NED shadowed marginalized">
-                            <h4 class="old-font">POLDERMAIL</h4>
-                            <p class="mb-3">Schrijf je in voor de nieuwsbrief voor prachtige art,
-                                feitjes over Nederland, en om in aanmerking te komen voor de closed beta!</p>
-                            <h5><i>Al 100+ mensen ontvangen de nieuwsbrief</i></h5>
-
-                            <form action="https://sendy.geofront.nl/subscribe" method="POST" accept-charset="utf-8">
-                                <div>
-                                    <input class="shadowed" type="email" name="email" id="email" placeholder="Email" />
-                                    <div style="display:none;">
-                                        <label for="hp">HP</label><br />
-                                        <input type="text" name="hp" id="hp" />
-                                    </div>
-                                    <input type="hidden" name="list" value="lxFrKuHuu9v0azcczL3ruw" />
-                                    <input type="hidden" name="subform" value="yes" />
-                                    <br>
-                                    <input class="glow" type="submit" name="submit" id="submit"
-                                        value="JA IK WIL POLDERMAIL!" />
-                                </div>
-                            </form>
-                        </div>
-                        <div class="ENG shadowed marginalized">
-                            <h4 class="old-font">POLDERMAIL</h4>
-                            <p class="mb-3">Subscribe to the newsletter for a behind-the-scenes look, fun facts about
-                                the
-                                Netherlands,
-                                and to be eligible for the closed beta!</p>
-                            <form action="https://sendy.geofront.nl/subscribe" method="POST" accept-charset="utf-8">
-                                <div>
-                                    <input class="shadowed" type="email" name="email" id="email" placeholder="Email" />
-                                    <div style="display:none;">
-                                        <label for="hp">HP</label><br />
-                                        <input type="text" name="hp" id="hp" />
-                                    </div>
-                                    <input type="hidden" name="list" value="lxFrKuHuu9v0azcczL3ruw" />
-                                    <input type="hidden" name="subform" value="yes" />
-                                    <br>
-                                    <input class="glow" type="submit" name="submit" id="submit"
-                                        value="YES I WANT POLDERMAIL!" />
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="email-signup-box masked">
-                        <div class="NED shadowed marginalized">
-                            <h4 class="old-font">DISCORD</h4>
-                            <p class="mb-3">De community aan enthousiaste polderaars blijft groeien! Wil je met ons
-                                babbelen &
-                                een kijkje achter de schermen, join ons dan op Discord!</p>
-                            <!-- <h5><i>70+ polderaars in de Discord</i></h5> -->
-                            <a class="glow my-btn" href="https://discord.gg/rz9UBzTtKP">LEUK!</a>
-                        </div>
-                        <div class="ENG shadowed marginalized marginalbot">
-                            <h4 class="old-font">DISCORD</h4>
-                            <p class="mb-3">Our community of enthusiastic polderers keeps growing! Want to chat with us
-                                & get a
-                                behind-the-scenes look? Join us on Discord!</p>
-                            <!-- <h5><i>100+ people have joined already</i></h5> -->
-                            <a class="glow my-btn" href="https://discord.gg/rz9UBzTtKP">COOL!</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-md-12 text-center">
-                    <p>
-                        <a href="https://discord.gg/rz9UBzTtKP" class="glow social-item"><span
-                                class="bi-discord"></span></a>
-                        <a href="https://x.com/i_am_feenster" class="glow social-item"><span
-                                class="bi-twitter"></span></a>
-                        <a href="https://www.youtube.com/channel/UCteUVaSdK6hX-SkLoBDl6AA"
-                            class="glow social-item"><span class="bi-youtube"></span></a>
-                        <a href="https://store.steampowered.com/app/3417550/POLDERS" class="glow social-item"><span
-                                class="bi-steam"></span></a>
-                        <a href="https://www.linkedin.com/in/jos-feenstra/" class="glow social-item"><span
-                                class="bi-linkedin"></span></a>
-                        <a href="mailto:info@geofront.nl" class="glow social-item"><span class="bi-envelope"></span></a>
-                    </p>
-                </div>
-            </div>
-
-
-            <div style="margin-top: 1em; font-size: 1.2em" class="shadowed text-center mb-4">
-                <a class="glow shadowed"
-                    href="https://drive.google.com/drive/folders/1HwGBLcsQ7jicy_8bDgiBvlIpRxscI8va?usp=sharing">
-                    Presskit
-                </a> |
-                <a class="glow shadowed" rel="me" href="/polders/privacy/privacy.html">Privacy Policy</a>
-                |
-                <a class="glow shadowed" rel="me"
-                    href="/polders/troubleshooting/troubleshooting.html">Troubleshooting</a>
-            </div>
-
-            <div class="row">
-                <p class="col-12 text-center">
-                    Copyright ©
-                    <script>
-                        document.write(new Date().getFullYear());
-                    </script>
-                    Geofront B.V.
-                </p>
-            </div>
-
-        </div>
-    </footer>
-    <script src="dependencies/jquery.min.js"></script>
-    <script src="dependencies/popper.min.js"></script>
-    <script src="dependencies/bootstrap.min.js"></script>
-    <script src="dependencies/jquery.easing.1.3.js"></script>
-    <script src="dependencies/jquery.stellar.min.js"></script>
-    <script src="dependencies/jquery.waypoints.min.js"></script>
-    <script src="dependencies/isotope.pkgd.min.js"></script>
-    <script src="dependencies/imagesloaded.pkgd.min.js"></script>
-    <script src="dependencies/custom.js"></script>
-
-    <script src="dependencies/js"></script>
-    <script src="dependencies/google-map.js"></script>
-
-    <script async="" src="dependencies/js_002"></script>
-    <link rel="stylesheet" href="index.css" />
-    <script src="./js/carousel.js"></script>
-
-    <script>
-        /* Removed inline carousel script */
-    </script>
 </body>
 
 </html>
