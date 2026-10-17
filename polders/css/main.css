@@ -18,7 +18,8 @@ main {
 }
 
 *::selection {
-    background-color: orange;
+    background-color: orangered;
+    color: #fff;
 }
 
 main.frontpage a {

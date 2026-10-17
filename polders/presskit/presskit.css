@@ -22,7 +22,7 @@
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-::selection { background: var(--rose); color: #1c1a14; }
+::selection { background: orangered; color: #fff; }
 
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
@@ -174,7 +174,8 @@ h3.sub { margin: 36px 0 16px; }
 .pitch blockquote, .mission { position: relative; margin: 0; padding: 0 0 0 38px; }
 /* Hanging open quote plus an inline close quote, both in Georgia since the display face has no curly quotes. */
 .pitch blockquote::before, .mission::before { content: "“"; position: absolute; left: -4px; top: -.08em; font: 400 76px/1 Georgia, serif; color: var(--rose); opacity: .85; }
-.pitch p::after, .mission p::after { content: "”"; font-family: Georgia, serif; color: var(--rose); opacity: .85; margin-left: .08em; }
+/* Closing mark matches the opening one; zero line-height and a drop keep it level with the text without growing the last line. */
+.pitch p::after, .mission p::after { content: "”"; font: 400 76px/0 Georgia, serif; vertical-align: -.5em; color: var(--rose); opacity: .85; margin-left: .04em; }
 .pitch blockquote, .mission { padding-left: 46px; }
 .pitch p { font-size: clamp(19px, 1.9vw, 23px); line-height: 1.6; margin: 0; color: var(--cream); max-width: 34em; }
 
