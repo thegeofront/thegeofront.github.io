@@ -13,6 +13,8 @@
         content="Build windmills, dikes, and sluices to keep your feet dry, and expand your settlement from shabby hamlet to a bussling trading city!">
     <meta property="og:url" content="https://geofront.nl">
 
+    <link rel="preload" as="image" href="./assets/keyart/01_sky.webp">
+    <link rel="preload" as="image" href="./assets/keyart/02_town_water.webp">
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/fa.css">
 
@@ -23,6 +25,9 @@
             --highlight-dim: rgba(220, 215, 187, 0.45);
             --font-display: 'cool';
             --font-body: 'Montserrat', sans-serif;
+            /* Two-step shadow: a tight contact shadow plus a wide soft one, so type reads on the bright key art. */
+            --shadow: drop-shadow(0 2px 1.5px rgba(20, 14, 8, 0.55)) drop-shadow(0 4px 18px rgba(20, 14, 8, 0.55));
+            --pad: 64px;
         }
 
         ::selection {
@@ -40,7 +45,7 @@
         }
 
         .shadowed {
-            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+            filter: var(--shadow);
         }
 
         html,
@@ -48,7 +53,7 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            background: #000;
+            background: #2b2420;
             color: var(--ink);
             font-family: var(--font-body);
             overflow: hidden;
@@ -60,29 +65,62 @@
             overflow: hidden;
         }
 
-        .hero video {
+        /* Key art rebuilt from the layered PSD. All layers share one box so they stay registered. */
+        .scene {
+            position: absolute;
+            inset: 0;
+        }
+
+        .scene .layer {
+            position: absolute;
+            left: calc(var(--pad) * -1);
+            top: calc(var(--pad) * -1);
+            width: calc(100% + var(--pad) * 2);
+            height: calc(100% + var(--pad) * 2);
+            will-change: transform;
+        }
+
+        .scene .layer img {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: none;
+            object-position: 50% 62%;
+            user-select: none;
+            -webkit-user-drag: none;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 1.1s ease-out, transform 1.6s cubic-bezier(.2, .7, .2, 1);
+            transition-delay: calc(var(--i) * 90ms);
         }
 
-        .hero .overlay-image {
-            position: absolute;
-            inset: 0;
-            background-image: url("./polders-background.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.75;
+        .scene .layer:first-child img {
+            transform: scale(1.04);
         }
 
+        .ready .scene .layer img {
+            opacity: 1;
+            transform: none;
+        }
+
+        .scene .boat img {
+            animation: bob 5.5s ease-in-out infinite;
+        }
+
+        @keyframes bob {
+            0%, 100% { translate: 0 0; }
+            50% { translate: 0 -0.35%; }
+        }
+
+        /* Light vignette: keeps the painting bright, darkens only the edges behind links and footer. */
         .hero .overlay-dark {
             position: absolute;
             inset: 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6));
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse 75% 70% at 50% 42%, rgba(20, 14, 8, 0) 45%, rgba(20, 14, 8, 0.38) 100%),
+                linear-gradient(rgba(20, 14, 8, 0.12), rgba(20, 14, 8, 0) 30%, rgba(20, 14, 8, 0) 62%, rgba(20, 14, 8, 0.42));
         }
 
         .hero canvas.clouds {
@@ -91,6 +129,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
+            opacity: 0.7;
         }
 
         .hero .content {
@@ -103,43 +142,50 @@
             text-align: center;
             padding: 0 16px;
             box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 1s ease-out 0.5s, transform 1.4s cubic-bezier(.2, .7, .2, 1) 0.5s;
+        }
+
+        .ready .hero .content {
+            opacity: 1;
+            transform: none;
         }
 
         .hero .logo {
-            height: 26vh;
-            max-height: 240px;
-            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+            height: 22vh;
+            max-height: 220px;
+            margin-bottom: 1.2vh;
         }
 
         .hero .title {
-            display: inline-block;
-            margin-bottom: 8vh;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 7vh;
         }
 
         .hero h1 {
             font-family: var(--font-display);
             font-weight: normal;
-            font-size: min(14vh, 17vw);
-            line-height: 1;
-            margin: 0 0 -0.08em 0;
-            letter-spacing: 2px;
+            font-size: min(14vh, 15vw);
+            line-height: 0.9;
+            margin: 0;
+            letter-spacing: 0.01em;
             color: var(--ink);
         }
 
+        /* Same lockup as the logo file: display face, tracked out to roughly the wordmark's width. */
         .hero .subtitle {
-            display: block;
-            font-family: var(--font-body);
-            font-weight: 1000;
-            font-size: min(2.5vh, 3.5vw);
-            font-width: 10px;
-            line-height: 0.5;
-            letter-spacing: 6px;
+            font-family: var(--font-display);
+            font-weight: normal;
+            font-size: min(3.55vh, 3.8vw);
+            line-height: 1;
+            letter-spacing: 0.135em;
+            margin: 0.5em 0 0 0.135em;
             white-space: nowrap;
             text-transform: uppercase;
-            color: var(--highlight);
-            margin: 0;
-            transform: scaleY(0.9);
-            transform-origin: top center;
+            color: var(--ink);
         }
 
         .hero .links {
@@ -165,6 +211,23 @@
             margin: 0 0.4em;
         }
 
+        /* Primary call to action: a framed button instead of a bare text link. */
+        .hero .links a.button {
+            margin-top: 2.5vh;
+            padding: 0.55em 1.3em 0.45em;
+            font-size: min(4.2vh, 6.5vw);
+            border: 2px solid var(--ink);
+            border-radius: 999px;
+            background: rgba(20, 14, 8, 0.35);
+            backdrop-filter: blur(3px);
+            transition: transform 0.1s ease-out, color 0.15s ease-out, border-color 0.15s ease-out, background 0.15s ease-out;
+        }
+
+        .hero .links a.button:hover {
+            border-color: var(--highlight);
+            background: rgba(20, 14, 8, 0.5);
+        }
+
         .hero .footer {
             position: absolute;
             left: 0;
@@ -180,7 +243,7 @@
             font-weight: 400;
             font-size: 0.8em;
             letter-spacing: 0.06em;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .hero .footer .smallprint {
@@ -191,34 +254,50 @@
         }
 
         .hero .footer .smallprint a {
-            color: var(--highlight);
+            color: var(--ink);
             text-decoration: none;
             padding: 0 0.6em;
             transition: color 0.15s ease-out;
         }
 
         .hero .footer .smallprint a:hover {
-            color: var(--ink);
+            color: var(--highlight);
         }
 
         .hero .footer .smallprint .sep {
-            color: var(--highlight-dim);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .scene .layer img,
+            .hero .content {
+                transition: none;
+            }
+
+            .scene .boat img {
+                animation: none;
+            }
         }
     </style>
 </head>
 
 <body>
     <section class="hero">
-        <video autoplay loop muted playsinline>
-            <source src="/polders/assets/gifs/bal.mp4" type="video/mp4">
-        </video>
-        <div class="overlay-image"></div>
+        <div class="scene" aria-hidden="true">
+            <div class="layer" data-depth="6" style="--i:0"><img src="./assets/keyart/01_sky.webp" alt=""></div>
+            <div class="layer" data-depth="14" style="--i:1"><img src="./assets/keyart/02_town_water.webp" alt=""></div>
+            <div class="layer boat" data-depth="22" style="--i:2"><img src="./assets/keyart/03_boat.webp" alt=""></div>
+            <div class="layer" data-depth="30" style="--i:3"><img src="./assets/keyart/04_quay.webp" alt=""></div>
+            <div class="layer" data-depth="38" style="--i:4"><img src="./assets/keyart/05_crates.webp" alt=""></div>
+            <div class="layer" data-depth="48" style="--i:5"><img src="./assets/keyart/06_tulips.webp" alt=""></div>
+            <div class="layer" data-depth="32" style="--i:6"><img src="./assets/keyart/07_dike_master.webp" alt=""></div>
+        </div>
         <div class="overlay-dark"></div>
         <canvas class="clouds"></canvas>
 
         <div class="content">
-            <img class="logo" src="assets/icon.svg" alt="">
             <div class="title shadowed">
+                <img class="logo" src="./assets/keyart/windmill.png" alt="">
                 <h1>POLDERS</h1>
                 <p class="subtitle">A Dutch City Builder</p>
             </div>
@@ -233,6 +312,9 @@
                 <a class="glow shadowed" href="https://linktr.ee/POLDERS">
                     &#9776;&nbsp; FOLLOW US &nbsp;&#9776;
                 </a>
+                <a class="glow shadowed button" href="/polders/presskit/">
+                    READ MORE &amp; PRESS KIT
+                </a>
             </div>
         </div>
 
@@ -243,8 +325,7 @@
                 Geofront B.V.
             </p>
             <div class="smallprint">
-                <a
-                    href="https://drive.google.com/drive/folders/1HwGBLcsQ7jicy_8bDgiBvlIpRxscI8va?usp=sharing">Presskit</a><span
+                <a href="/polders/presskit/">Presskit</a><span
                     class="sep">·</span><a href="/polders/privacy/privacy.html">Privacy Policy</a><span
                     class="sep">·</span><a href="/polders/troubleshooting/troubleshooting.html">Troubleshooting</a>
             </div>
