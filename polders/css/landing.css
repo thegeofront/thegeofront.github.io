@@ -128,9 +128,13 @@ body {
 }
 
 .hero .content,
-.hero .lang,
 .hero .scroll-cue {
     z-index: 2;
+}
+
+/* Above .content, which covers the whole hero and would otherwise swallow clicks. */
+.hero .lang {
+    z-index: 3;
 }
 
 .hero canvas.clouds {
@@ -249,7 +253,7 @@ a.button:hover {
 /* Language switch, top right of the key art. */
 .lang {
     position: absolute;
-    top: 22px;
+    top: 16px;
     right: 26px;
     font-family: var(--font-display);
     font-size: 18px;
@@ -257,12 +261,14 @@ a.button:hover {
 }
 
 .lang a {
+    display: inline-block;
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    padding: 0 0.3em;
+    padding: 0.35em 0.3em;
 }
 
-.lang a:hover {
+.lang a:hover,
+.lang a:focus-visible {
     color: var(--highlight);
 }
 
@@ -479,7 +485,7 @@ a.button:hover {
     }
 
     .lang {
-        top: 16px;
+        top: 10px;
         right: 16px;
         font-size: 16px;
     }
